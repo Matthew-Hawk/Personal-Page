@@ -1,6 +1,6 @@
 /* EDIT YOUR CONTENT HERE. Leave an image path empty to keep its placeholder. */
 const portfolio = {
-  profileImage: "", // Example: "images/me.jpg" (create that folder yourself)
+  profileImage: "images/Matthew_pfp.png", 
   movies: [
     { title: "Interstellar", detail: "2014 / SCI-FI", poster: "", background: "#252b3b", ink: "#f1ede3" },
     { title: "The Batman", detail: "2022 / THRILLER", poster: "", background: "#8e3029", ink: "#fff0e6" },
