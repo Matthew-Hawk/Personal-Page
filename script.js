@@ -1,10 +1,10 @@
 /* EDIT YOUR CONTENT HERE. Leave an image path empty to keep its placeholder. */
 const portfolio = {
-  profileImage: "images/Matthew_pfp.png", 
-  movies: [
-    { title: "Interstellar", detail: "2014 / SCI-FI", poster: "", background: "#252b3b", ink: "#f1ede3" },
-    { title: "The Batman", detail: "2022 / THRILLER", poster: "", background: "#8e3029", ink: "#fff0e6" },
-    { title: "The Truman Show", detail: "1998 / DRAMA", poster: "", background: "#467e9a", ink: "#f7e6ae" }
+  profileImage: "images/Matthew_pfp.png",
+  projects: [
+    { title: "Portfolio Site", detail: "2026 / FRONTEND", poster: "", background: "#252b3b", ink: "#f1ede3" },
+    { title: "Auto Tasks", detail: "2025 / PRODUCTIVITY", poster: "", background: "#8e3029", ink: "#fff0e6" },
+    { title: "Data Dashboard", detail: "2024 / ANALYTICS", poster: "", background: "#467e9a", ink: "#f7e6ae" }
   ]
 };
 
@@ -20,46 +20,46 @@ if (portfolio.profileImage.trim()) {
   photo.src = portfolio.profileImage;
 }
 
-// Build movie cards. Text is assigned via textContent so edits remain safe.
-const movieGrid = document.querySelector("#movie-grid");
-portfolio.movies.forEach((movie, index) => {
+// Build project cards. Text is assigned via textContent so edits remain safe.
+const projectGrid = document.querySelector("#project-grid");
+portfolio.projects.forEach((project, index) => {
   const card = document.createElement("article");
-  card.className = "movie-card reveal";
+  card.className = "project-card reveal";
   const poster = document.createElement("div");
-  poster.className = "movie-poster";
-  poster.style.setProperty("--poster-bg", movie.background);
-  poster.style.setProperty("--poster-ink", movie.ink);
+  poster.className = "project-poster";
+  poster.style.setProperty("--poster-bg", project.background);
+  poster.style.setProperty("--poster-ink", project.ink);
   const number = document.createElement("span");
-  number.className = "movie-number";
-  number.textContent = `FILM / ${String(index + 1).padStart(2, "0")}`;
+  number.className = "project-number";
+  number.textContent = `PROJECT / ${String(index + 1).padStart(2, "0")}`;
   const placeholder = document.createElement("div");
-  placeholder.className = "movie-placeholder";
+  placeholder.className = "project-placeholder";
   const displayTitle = document.createElement("strong");
-  displayTitle.textContent = movie.title;
+  displayTitle.textContent = project.title;
   const placeholderLabel = document.createElement("small");
-  placeholderLabel.textContent = "ADD YOUR POSTER ↗";
+  placeholderLabel.textContent = "VIEW ON GITHUB ↗";
   placeholder.append(displayTitle, placeholderLabel);
   poster.append(number, placeholder);
-  if (movie.poster.trim()) {
+  if (project.poster.trim()) {
     const image = document.createElement("img");
-    image.alt = `${movie.title} movie poster`;
+    image.alt = `${project.title} project preview`;
     image.loading = "lazy";
     image.addEventListener("load", () => poster.classList.add("has-image"));
     image.addEventListener("error", () => image.remove());
-    image.src = movie.poster;
+    image.src = project.poster;
     poster.append(image);
   }
   const meta = document.createElement("div");
-  meta.className = "movie-meta";
+  meta.className = "project-meta";
   const label = document.createElement("span");
-  label.textContent = "A PERSONAL FAVORITE";
+  label.textContent = "A RECENT BUILD";
   const detail = document.createElement("span");
-  detail.textContent = movie.detail;
+  detail.textContent = project.detail;
   meta.append(label, detail);
   const title = document.createElement("h3");
-  title.textContent = movie.title;
+  title.textContent = project.title;
   card.append(poster, meta, title);
-  movieGrid.append(card);
+  projectGrid.append(card);
 });
 
 // Reveal elements as they enter the viewport. Respect reduced-motion settings.
