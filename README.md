@@ -28,7 +28,7 @@ This is a living project—part portfolio, part experiment, and a place to keep 
 
 ## 02 / A look inside
 
-![Project section with three colorful poster-style cards](docs/screenshots/projects.png)
+![Project section featuring Z-Raid, Shellify, and Promptly with live-site screenshot backgrounds](docs/screenshots/projects.jpg)
 
 <details>
 <summary><strong>📱 See the mobile homepage</strong></summary>
@@ -45,19 +45,29 @@ Screenshots were captured from a local run of the repository.
 | :--- | :--- |
 | **Hello, internet.** | Name, portrait, introduction, and a link to learn more |
 | **A bit about me.** | A short bio and interests: technology, building, film, and curiosity |
-| **My latest projects.** | Three configurable project cards generated with JavaScript |
+| **My latest projects.** | Z-Raid, Shellify, and Promptly with screenshot backgrounds, live sites, and GitHub links |
 | **Let's connect.** | Social links with hover effects |
 
 ### Small details, big character
 
 - **Responsive layouts** that adapt the portrait, project grid, and social links for smaller screens.
 - **Animated hero glow** and scroll reveals, with support for reduced-motion preferences.
-- **Poster-style project cards** with configurable text, colors, and optional images.
+- **Project cards** with live-site screenshot backgrounds, descriptions, and separate links to try each project or browse its source.
 - **Portrait fallback** that remains visible if the configured photo cannot load.
 - **Keyboard focus styling**, labeled navigation, and descriptive image text.
 - **Static files throughout**—no framework, dependency install, database, or build command.
 
-> **Current content:** The project cards use sample entries and don't link to repositories yet, even though their artwork says “VIEW ON GITHUB.” The social links in `index.html` also contain placeholder usernames. See [Make it yours](#04--make-it-yours) to customize them.
+### Featured projects
+
+| Project | What it does | Live site | Source |
+| :--- | :--- | :--- | :--- |
+| **Z-Raid** | A zombie survival game: choose a survivor, raid three zones, and recover the cure. | [Play Z-Raid](https://z-raid.pages.dev/) | [GitHub](https://github.com/Matthew-Hawk/Z-Raid) |
+| **Shellify** | A visual PowerShell builder for assembling workflows and exporting scripts. | [Open Shellify](https://shellify.pages.dev/) | [GitHub](https://github.com/Matthew-Hawk/Shellify) |
+| **Promptly** | A guided builder for clear prompts to paste into your preferred AI. | [Open Promptly](https://promptly.thehawk6353.workers.dev/#home) | [GitHub](https://github.com/Matthew-Hawk/Promptly) |
+
+Click a card to open its live site. Each card also has a separate GitHub link. Both open in a new tab. Backgrounds are local screenshots captured from the live projects in October 2026.
+
+> **Current content:** The social links in `index.html` still contain placeholder usernames. See [Make it yours](#04--make-it-yours) to customize them.
 
 ## 03 / Run it locally
 
@@ -101,7 +111,7 @@ If your Python installation uses `python`, use that in place of `py` or `python3
 | Name, introduction, bio, and page metadata | `index.html` |
 | LinkedIn, Instagram, and YouTube destinations | Social link `href` values in `index.html` |
 | Portrait | `portfolio.profileImage` in `script.js` |
-| Project titles, metadata, images, and card colors | `portfolio.projects` in `script.js` |
+| Project titles, descriptions, images, live URLs, repository URLs, and card colors | `portfolio.projects` in `script.js` |
 | Theme, typography, spacing, and motion | `style.css` |
 | App name, theme, and icon paths | `site.webmanifest` |
 
@@ -121,13 +131,16 @@ Edit the `portfolio` object at the top of `script.js`. Each project supports the
 {
   title: "My next build",
   detail: "2026 / FRONTEND",
-  poster: "images/my-project.png",
+  description: "A short description of what the project does.",
+  poster: "images/my-project.jpg",
+  liveUrl: "https://my-project.example.com/",
+  repoUrl: "https://github.com/your-username/my-project",
   background: "#252b3b",
   ink: "#f1ede3"
 }
 ```
 
-Leave `poster` empty to use the styled text placeholder. Place custom images in `images/` and use their relative paths. To make a card open a repository, add a URL field and update the card-generation code to create an anchor; there is no project-link field wired up yet.
+Place screenshots in `images/` and use relative paths in `poster`. The image fills the card background, with a dark gradient behind the title and live-site label. Leave `poster` empty to use the configured background color; the title and links also remain available if an image fails to load. Set `liveUrl` for the clickable card and `repoUrl` for its separate GitHub link. Use full HTTPS URLs.
 
 **Manifest icons:** The included icon images live in `Favicon/`. Update the manifest's icon paths to `/Favicon/web-app-manifest-192x192.png` and `/Favicon/web-app-manifest-512x512.png` when serving from the site root.
 
@@ -138,7 +151,7 @@ Leave `poster` empty to use the styled text placeholder. Place custom images in 
 | `index.html` | Single-page layout, content, navigation, and social links |
 | `style.css` | Theme, responsive layouts, grain texture, and animations |
 | `script.js` | Portrait loading, project-card rendering, scroll reveals, and current year |
-| `images/` | Portrait and any added project images |
+| `images/` | Portrait and the Z-Raid, Shellify, and Promptly screenshot backgrounds |
 | `Favicon/` | Browser and app icon assets |
 | `site.webmanifest` | Web app metadata |
 | `docs/screenshots/` | Images used in this README |

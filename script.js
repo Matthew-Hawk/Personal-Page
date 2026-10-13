@@ -2,9 +2,9 @@
 const portfolio = {
   profileImage: "images/Matthew_pfp.png",
   projects: [
-    { title: "Portfolio Site", detail: "2026 / FRONTEND", poster: "", background: "#252b3b", ink: "#f1ede3" },
-    { title: "Auto Tasks", detail: "2025 / PRODUCTIVITY", poster: "", background: "#8e3029", ink: "#fff0e6" },
-    { title: "Data Dashboard", detail: "2024 / ANALYTICS", poster: "", background: "#467e9a", ink: "#f7e6ae" }
+    { title: "Z-Raid", detail: "SURVIVAL GAME", description: "Pick your survivor, raid the ruins, and recover the cure. Three raids. One life.", poster: "images/z-raid.jpg", liveUrl: "https://z-raid.pages.dev/", repoUrl: "https://github.com/Matthew-Hawk/Z-Raid", background: "#101b21", ink: "#f1ede3" },
+    { title: "Shellify", detail: "POWERSHELL BUILDER", description: "Build PowerShell visually. Choose commands, shape your workflow, and export a script.", poster: "images/shellify.jpg", liveUrl: "https://shellify.pages.dev/", repoUrl: "https://github.com/Matthew-Hawk/Shellify", background: "#121326", ink: "#f1ede3" },
+    { title: "Promptly", detail: "AI PROMPT BUILDER", description: "Turn a few simple details into a clear, ready-to-paste request for your favorite AI.", poster: "images/promptly.jpg", liveUrl: "https://promptly.thehawk6353.workers.dev/#home", repoUrl: "https://github.com/Matthew-Hawk/Promptly", background: "#202d40", ink: "#f1ede3" }
   ]
 };
 
@@ -25,8 +25,12 @@ const projectGrid = document.querySelector("#project-grid");
 portfolio.projects.forEach((project, index) => {
   const card = document.createElement("article");
   card.className = "project-card reveal";
-  const poster = document.createElement("div");
+  const poster = document.createElement("a");
   poster.className = "project-poster";
+  poster.href = project.liveUrl;
+  poster.target = "_blank";
+  poster.rel = "noopener noreferrer";
+  poster.setAttribute("aria-label", `Visit ${project.title} live site (opens in new tab)`);
   poster.style.setProperty("--poster-bg", project.background);
   poster.style.setProperty("--poster-ink", project.ink);
   const number = document.createElement("span");
@@ -37,7 +41,7 @@ portfolio.projects.forEach((project, index) => {
   const displayTitle = document.createElement("strong");
   displayTitle.textContent = project.title;
   const placeholderLabel = document.createElement("small");
-  placeholderLabel.textContent = "VIEW ON GITHUB ↗";
+  placeholderLabel.textContent = "VIEW LIVE SITE ↗";
   placeholder.append(displayTitle, placeholderLabel);
   poster.append(number, placeholder);
   if (project.poster.trim()) {
@@ -52,13 +56,30 @@ portfolio.projects.forEach((project, index) => {
   const meta = document.createElement("div");
   meta.className = "project-meta";
   const label = document.createElement("span");
-  label.textContent = "A RECENT BUILD";
+  label.textContent = "BUILT BY ME";
   const detail = document.createElement("span");
   detail.textContent = project.detail;
   meta.append(label, detail);
   const title = document.createElement("h3");
   title.textContent = project.title;
-  card.append(poster, meta, title);
+  const caption = document.createElement("div");
+  caption.className = "project-caption";
+  const liveLabel = document.createElement("span");
+  liveLabel.className = "project-live-label";
+  liveLabel.textContent = "VIEW LIVE SITE ↗";
+  caption.append(title, liveLabel);
+  poster.append(caption);
+  const description = document.createElement("p");
+  description.className = "project-description";
+  description.textContent = project.description;
+  const repository = document.createElement("a");
+  repository.className = "project-repo-link";
+  repository.href = project.repoUrl;
+  repository.target = "_blank";
+  repository.rel = "noopener noreferrer";
+  repository.setAttribute("aria-label", `View ${project.title} on GitHub (opens in new tab)`);
+  repository.textContent = "VIEW ON GITHUB ↗";
+  card.append(poster, meta, description, repository);
   projectGrid.append(card);
 });
 

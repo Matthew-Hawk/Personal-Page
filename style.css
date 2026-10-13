@@ -422,7 +422,7 @@ a:focus-visible {
 
 
 /* =========================================================
-   10. FAVORITE MOVIES SECTION
+   10. PROJECTS SECTION
    ========================================================= */
 
 .projects {
@@ -458,7 +458,7 @@ a:focus-visible {
 }
 
 .project-poster {
-    aspect-ratio: 2 / 3;
+    aspect-ratio: 16 / 10;
 
     display: grid;
     place-items: center;
@@ -469,23 +469,75 @@ a:focus-visible {
     border: var(--line);
     background: var(--poster-bg, #332e2b);
     color: var(--poster-ink, #f2eee6);
+    text-decoration: none;
 
     transition:
         transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
         box-shadow 0.4s;
 }
 
-.project-card:hover .project-poster {
+.project-card:hover .project-poster,
+.project-card:focus-within .project-poster {
     transform: translateY(-9px) rotate(-1deg);
     box-shadow: 9px 9px 0 var(--red);
 }
 
 .project-poster img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
 
     display: block;
     object-fit: cover;
+    object-position: left top;
+}
+
+.project-poster::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent 30%, rgba(8, 12, 18, 0.95) 100%);
+    pointer-events: none;
+}
+
+.project-caption {
+    position: absolute;
+    inset: auto 20px 20px;
+    z-index: 1;
+}
+
+.project-caption h3 {
+    margin: 0 0 12px;
+}
+
+.project-live-label,
+.project-repo-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+}
+
+.project-live-label {
+    display: inline-block;
+    border: 1px solid currentColor;
+    padding: 9px 12px;
+}
+
+.project-description {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 16px 0;
+}
+
+.project-repo-link {
+    display: inline-block;
+    padding: 6px 0;
+    text-underline-offset: 4px;
+}
+
+.project-repo-link:hover {
+    color: var(--red);
 }
 
 .project-placeholder {
@@ -502,6 +554,7 @@ a:focus-visible {
 }
 
 .project-placeholder strong {
+    visibility: hidden;
     font-family: var(--sans);
     font-size: clamp(32px, 5vw, 77px);
     font-weight: 700;
@@ -511,7 +564,7 @@ a:focus-visible {
 }
 
 .project-placeholder small {
-    align-self: end;
+    display: none;
 }
 
 .project-poster.has-image .project-placeholder {
@@ -545,7 +598,7 @@ a:focus-visible {
 }
 
 .project-card h3 {
-    margin: 13px 0 0;
+    margin: 0 0 12px;
 
     font-size: clamp(20px, 2.5vw, 34px);
     line-height: 1.1;
