@@ -6,6 +6,17 @@
   <meta name="theme-color" content="#eeeae2">
   <meta name="description" content="Matthew Hawkins — a personal portfolio and a few favorite things.">
   <title>Matthew Hawkins / Portfolio</title>
+  <script>
+    // Apply saved preferences before the first paint.
+    try {
+      const theme = localStorage.getItem('portfolio-theme');
+      document.documentElement.dataset.theme = theme === 'dark' || theme === 'light' ? theme : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.motion = localStorage.getItem('portfolio-motion') === 'paused' || matchMedia('(prefers-reduced-motion: reduce)').matches ? 'paused' : 'on';
+    } catch {
+      document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.motion = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'paused' : 'on';
+    }
+  </script>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="Favicon/apple-touch-icon.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="Favicon/favicon.svg" />
@@ -16,6 +27,7 @@
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
+  <div class="reading-progress" aria-hidden="true"></div>
   <header class="site-header">
     <a class="wordmark" href="#top" aria-label="Matthew Hawkins, back to top">MH<span class="star">✳</span></a>
     <nav aria-label="Main navigation">
@@ -24,11 +36,16 @@
       <a href="#connect">CONNECT ↗</a>
     </nav>
     <span class="edition">PERSONAL SITE / 001</span>
+    <div class="display-controls" aria-label="Display preferences">
+      <button class="display-toggle" id="theme-toggle" type="button" aria-label="Dark theme" aria-pressed="false"><span class="theme-symbol" aria-hidden="true">◐</span><span id="theme-label">DARK</span></button>
+      <button class="display-toggle" id="motion-toggle" type="button" aria-label="Pause animations" aria-pressed="false"><span aria-hidden="true">◌</span><span id="motion-label">MOTION ON</span></button>
+    </div>
   </header>
 
   <main id="top">
     <section class="hero section-shell" aria-labelledby="hero-title">
       <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-topline"><span>HELLO, INTERNET.</span><span>SCROLL TO EXPLORE ↓</span></div>
       <div class="hero-content">
         <div class="hero-copy reveal">
@@ -38,6 +55,7 @@
           <a class="action-link" href="#about">GET TO KNOW ME <span aria-hidden="true">↗</span></a>
         </div>
         <div class="portrait-wrap reveal">
+          <div class="orbit-graphic" aria-hidden="true"><span class="orbit-ring"></span><span class="orbit-star">✳</span><span class="orbit-note">ALWAYS<br>EXPLORING ↗</span></div>
           <div class="portrait-frame" id="portrait-frame">
             <img id="profile-photo" alt="Portrait of Matthew Hawkins" hidden>
             <div class="portrait-placeholder" id="portrait-placeholder" aria-label="Profile photo placeholder"><span>YOUR<br>PHOTO<br>HERE ↗</span></div>
@@ -47,6 +65,10 @@
       </div>
       <div class="hero-bottomline"><span>DESIGNED TO BE DIFFERENT.</span><span>↓ / 01</span></div>
     </section>
+
+    <div class="motion-strip" aria-hidden="true">
+      <div class="motion-track"><span>STAY CURIOUS <b>✳</b> BUILD SOMETHING <b>↗</b> KEEP EXPLORING <b>✳</b> MAKE IT REAL <b>↗</b></span><span>STAY CURIOUS <b>✳</b> BUILD SOMETHING <b>↗</b> KEEP EXPLORING <b>✳</b> MAKE IT REAL <b>↗</b></span></div>
+    </div>
 
     <section id="about" class="about section-shell" aria-labelledby="about-title">
       <div class="section-label"><span>01 / THE INTRODUCTION</span><span>WHO I AM</span></div>

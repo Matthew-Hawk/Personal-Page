@@ -41,6 +41,13 @@ This is a living project—part portfolio, part experiment, and a place to keep 
 
 Screenshots were captured from a local run of the repository.
 
+<details>
+<summary><strong>See the dark theme</strong></summary>
+
+![Dark theme with charcoal surfaces, coral accents, and an orbiting star graphic](docs/screenshots/dark-home.jpg)
+
+</details>
+
 | Section | What's inside |
 | :--- | :--- |
 | **Hello, internet.** | Name, portrait, introduction, and a link to learn more |
@@ -52,6 +59,9 @@ Screenshots were captured from a local run of the repository.
 
 - **Responsive layouts** that adapt the portrait, project grid, and social links for smaller screens.
 - **Animated hero glow** and scroll reveals, with support for reduced-motion preferences.
+- **Playful motion graphics:** an orbiting star around the portrait, a scrolling editorial ribbon, staggered project reveals, image zooms, and a reading-progress line.
+- **Light and dark themes:** use the header theme button to switch. The first visit follows your device theme; your choice is saved for future visits and applied before the page paints.
+- **Motion control:** pause decorative animations from the header. This preference is saved locally. Device reduced-motion settings always disable animation and hover movement.
 - **Project cards** with live-site screenshot backgrounds, descriptions, and separate links to try each project or browse its source.
 - **Portrait fallback** that remains visible if the configured photo cannot load.
 - **Keyboard focus styling**, labeled navigation, and descriptive image text.
