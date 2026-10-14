@@ -123,7 +123,24 @@ portfolio.projects.forEach((project, index) => {
   repository.rel = "noopener noreferrer";
   repository.setAttribute("aria-label", `View ${project.title} on GitHub (opens in new tab)`);
   repository.textContent = "VIEW ON GITHUB ↗";
-  card.append(poster, meta, description, repository);
+  card.append(poster, meta);
+  if (project.title === "Shellify" || project.title === "Promptly") {
+    const badge = document.createElement("span");
+    badge.className = "project-wip";
+    const spark = document.createElement("span");
+    spark.className = "project-wip-spark";
+    spark.setAttribute("aria-hidden", "true");
+    spark.textContent = "✳";
+    const status = document.createElement("span");
+    status.textContent = "WORK IN PROGRESS";
+    const dots = document.createElement("span");
+    dots.className = "project-wip-dots";
+    dots.setAttribute("aria-hidden", "true");
+    for (let dot = 0; dot < 3; dot++) dots.append(document.createElement("i"));
+    badge.append(spark, status, dots);
+    card.append(badge);
+  }
+  card.append(description, repository);
   projectGrid.append(card);
 });
 
