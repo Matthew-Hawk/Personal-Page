@@ -42,6 +42,35 @@ systemMotion.addEventListener('change', () => {
 });
 updateDisplay();
 
+// Scroll feedback is decorative: content never depends on animation to appear.
+const progress = document.createElement('div');
+progress.className = 'reading-progress';
+progress.setAttribute('aria-hidden', 'true');
+document.body.prepend(progress);
+let progressFrame = 0;
+function updateProgress() {
+  const distance = root.scrollHeight - innerHeight;
+  progress.style.transform = `scaleX(${distance > 0 ? Math.min(1, Math.max(0, scrollY / distance)) : 0})`;
+  progressFrame = 0;
+}
+addEventListener('scroll', () => {
+  if (!progressFrame) progressFrame = requestAnimationFrame(updateProgress);
+}, {passive: true});
+addEventListener('resize', updateProgress);
+addEventListener('load', updateProgress);
+if ('ResizeObserver' in window) new ResizeObserver(updateProgress).observe(document.body);
+updateProgress();
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      if (root.dataset.motion !== 'paused') entry.target.classList.add('arrived');
+      observer.unobserve(entry.target);
+    }
+  }, {threshold: 0.12});
+  document.querySelectorAll('.featured, .supporting-grid article, .story, .capabilities article, .case-row, .sample').forEach(item => observer.observe(item));
+}
 
 document.querySelector('#year').textContent = new Date().getFullYear();
 const copyButton = document.querySelector('#copy-sample');
