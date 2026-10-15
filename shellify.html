@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#eeeae2">
+<title>Shellify Case Study | Matthew Hawkins
+</title>
+<meta name="description" content="How Matthew Hawkins shaped Shellify: a deterministic PowerShell builder, an inactive-user workflow, testing, design tradeoffs, and results.">  <script>
+    // Apply saved preferences before the first paint.
+    try {
+      const theme = localStorage.getItem('portfolio-theme');
+      document.documentElement.dataset.theme = theme === 'dark' || theme === 'light' ? theme : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.motion = localStorage.getItem('portfolio-motion') === 'paused' || matchMedia('(prefers-reduced-motion: reduce)').matches ? 'paused' : 'on';
+    } catch {
+      document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.motion = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'paused' : 'on';
+    }
+  </script>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="icon" type="image/png" href="Favicon/apple-touch-icon.png" sizes="96x96" />
+
+<link rel="icon" type="image/svg+xml" href="Favicon/favicon.svg" />
+
+<link rel="shortcut icon" href="Favicon/favicon.ico" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="Favicon/apple-touch-icon.png" />
+
+<link rel="manifest" href="site.webmanifest" />
+  <script src="script.js" defer></script>
+
+</head>
+<body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><a class="wordmark" href="index.html" aria-label="Matthew Hawkins home">MH<span>✳</span></a>
+<nav aria-label="Main navigation"><a href="index.html#projects">WORK</a><a href="index.html#experience">EXPERIENCE</a><a href="index.html#connect">CONTACT ↗</a>
+</nav>
+<div class="display-controls"><button id="theme-toggle" type="button" aria-label="Dark theme" aria-pressed="false"><span id="theme-label">DARK</span> ◐</button><button id="motion-toggle" type="button" aria-label="Pause animations" aria-pressed="false"><span id="motion-label">MOTION ON</span> ◌</button>
+</div>
+</header>
+<main id="main">
+<section class="section-shell case-hero"><a href="index.html#projects">← Selected work</a>
+<p class="eyebrow accent">CASE STUDY / SHELLIFY
+</p>
+<h1>Make the script<br><em>visible.</em>
+</h1>
+<p class="lead">A visual PowerShell builder for learning commands and making everyday IT scripting easier.
+</p>
+<div class="actions"><a href="https://shellify.pages.dev/">Live application ↗</a><a href="https://github.com/Matthew-Hawk/Shellify">Source code ↗</a>
+</div>
+<figure class="case-image"><img src="images/shellify-builder.png" alt="Shellify’s three-panel workspace: command catalog, editable steps, and generated PowerShell" width="1440" height="900">
+<figcaption>COMMAND DISCOVERY, CONFIGURATION, AND OUTPUT IN ONE WORKSPACE.
+</figcaption>
+</figure>
+</section>
+<section class="section-shell case-body">
+<div class="case-row">
+<h2>The problem
+</h2>
+<div>
+<p>I was tired of prompting AI, filling in missing details, and researching commands for one-off problems. I wanted a more direct way to assemble a script and see what it would do.
+</p>
+<p>Shellify serves beginners learning PowerShell and experienced IT professionals who want to build scripts more easily.
+</p>
+</div>
+</div>
+<div class="case-row">
+<h2>My role
+</h2>
+<div>
+<p>I developed the technical scaffolding and product direction, shaped the UI/UX, and handled hosting. AI assisted with development, and I sought feedback from other IT professionals.
+</p>
+<p>The contributions and practical outcomes here are my account of the project. Implementation details are grounded in the source linked below.
+</p>
+</div>
+</div>
+<h2>How a task becomes a script
+</h2>
+<ol class="logic-chain" aria-label="How Shellify turns a task into a script">
+<li><span>01 / FIND</span><strong>Choose a task</strong>
+<p>Search the local command catalog.
+</p>
+</li>
+<li><span>02 / SELECT</span><strong>Load a template</strong>
+<p>Use a supported command with defined parameters.
+</p>
+</li>
+<li><span>03 / CONFIGURE</span><strong>Add your details</strong>
+<p>Validate inputs and assemble the script in your browser.
+</p>
+</li>
+<li><span>04 / REVIEW</span><strong>Copy the script</strong>
+<p>Review the PowerShell before running it yourself.
+</p>
+</li>
+</ol>
+<div class="case-row">
+<h2>A deliberate tradeoff
+</h2>
+<div>
+<p>I chose not to use AI to generate scripts at runtime. Shellify uses a local catalog of supported commands, validates the supplied values, and assembles PowerShell deterministically.
+</p>
+<p>This makes output inspectable and repeatable. The tradeoff is scope: a task needs a supported template; arbitrary requests do not become new commands automatically. Deterministic output still needs review for the environment where it will run.
+</p><a href="https://github.com/Matthew-Hawk/Shellify/blob/main/dist/js/generator.js">Read the generation logic ↗</a>
+</div>
+</div>
+<div class="case-row">
+<h2>The difficult part
+</h2>
+<div>
+<p>Fitting the builder on the screen while keeping it easy to navigate was my hardest design problem.
+</p>
+<p>The implementation uses a viewport-height workspace, separately scrollable panels, and responsive panel layouts. Users can keep configuration and preview close together, though smaller screens require switching views or scrolling within panels.
+</p><a href="https://github.com/Matthew-Hawk/Shellify/blob/main/dist/styles.css">Inspect the workspace layout ↗</a>
+</div>
+</div>
+<article class="sample">
+<p class="eyebrow">FIXED SAMPLE / GENERATED FROM SHELLIFY’S EXISTING LOGIC
+</p>
+<h2>Find inactive AD users.
+</h2>
+<p>Choose “Find inactive Active Directory users,” keep the inactivity threshold at <strong>90 days</strong> and maximum results at <strong>100</strong>, then review and copy the output. This sample leaves domain controller and search base blank, using the current domain.
+</p>
+<p>This is a fixed script, not an interactive generator. Nothing on this portfolio executes PowerShell or connects to a directory.
+</p>
+<details>
+<summary>View the complete sample script
+</summary><pre tabindex="0" aria-label="PowerShell sample"><code id="sample-code"># Shellify | Explainable PowerShell, built step by step.
+# Review before running. Target requirements are listed in the builder.
+# Target: Windows PowerShell 5.1; check module compatibility.
+$ErrorActionPreference = &#x27;Stop&#x27;
+
+Import-Module ActiveDirectory -ErrorAction Stop
+
+# 1. Find inactive Active Directory users
+# Review accounts with no recent directory logon activity.
+# Requirements: Windows; RSAT ActiveDirectory module, a reachable domain controller with AD Web Services, and directory read permissions. Use Windows PowerShell 5.1, or PowerShell 7 with a compatible RSAT module. Uses the account running the script.
+Search-ADAccount -AccountInactive -UsersOnly -DateTime (Get-Date).AddDays(-90) -ResultSetSize 100 -ErrorAction Stop |
+    Select-Object Name, SamAccountName, Enabled, LastLogonDate, DistinguishedName
+</code></pre><button id="copy-sample" type="button" hidden>Copy sample</button>
+<p id="copy-status" role="status">
+</p>
+</details>
+<p class="small">Requires Windows, a compatible RSAT ActiveDirectory module, a reachable domain controller with AD Web Services, and directory read permissions. Replicated logon information can lag. Results are candidates for review, not proof that accounts should be removed. This query does not disable or delete accounts.
+</p>
+</article>
+<div class="case-row">
+<h2>How it was checked
+</h2>
+<div>
+<p>I ran Active Directory scripts in my work environment and tried other scripts on my work computer.
+</p>
+<p>The repository also includes automated checks for template generation, parameter validation, quoting, search matching, and AD query limits. During this portfolio update, all 12 tests in the engine suite passed. These tests verify generation behavior; they do not establish that every generated script works in every environment.
+</p><a href="https://github.com/Matthew-Hawk/Shellify/blob/main/test/engine.test.js">Inspect the engine tests ↗</a>
+</div>
+</div>
+<div class="case-row">
+<h2>Results &amp; limits
+</h2>
+<div>
+<p>Using Shellify helped me identify unused applications I wanted to uninstall and supported my Active Directory cleanup at work. These are qualitative, personally observed results; no time savings or adoption metrics are claimed.
+</p>
+<p>Output verbosity remains a concern for me. The inspected version includes result formatting and export controls for supported commands, so formatting support varies by command and configuration. The inactive-user sample here uses the default output.
+</p>
+<p>Shellify builds scripts; users review and run them in their own environment. Its catalog and prerequisites bound what it can support.
+</p>
+</div>
+</div>
+<div class="actions"><a class="button primary" href="https://shellify.pages.dev/">Explore Shellify ↗</a><a href="index.html#connect">Talk about my work ↗</a>
+</div>
+</section>
+</main>
+<footer><span>© <span id="year">2026</span> MATTHEW HAWKINS</span><span>IT SYSTEMS / AUTOMATION / WEB</span><a href="#main">BACK TO TOP ↑</a>
+</footer>
+</body>
+</html>

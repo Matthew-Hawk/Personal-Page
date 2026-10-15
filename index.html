@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#eeeae2">
-  <meta name="description" content="Matthew Hawkins — a personal portfolio and a few favorite things.">
-  <title>Matthew Hawkins / Portfolio</title>
-  <script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#eeeae2">
+<title>Matthew Hawkins | IT Systems & Automation
+</title>
+<meta name="description" content="Matthew Hawkins: IT systems technician and web developer in DFW. Explore Shellify, infrastructure problem-solving, and project evidence.">  <script>
     // Apply saved preferences before the first paint.
     try {
       const theme = localStorage.getItem('portfolio-theme');
@@ -17,102 +17,210 @@
       document.documentElement.dataset.motion = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'paused' : 'on';
     }
   </script>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="Favicon/apple-touch-icon.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="Favicon/favicon.svg" />
-  <link rel="shortcut icon" href="Favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="Favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="icon" type="image/png" href="Favicon/apple-touch-icon.png" sizes="96x96" />
+
+<link rel="icon" type="image/svg+xml" href="Favicon/favicon.svg" />
+
+<link rel="shortcut icon" href="Favicon/favicon.ico" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="Favicon/apple-touch-icon.png" />
+
+<link rel="manifest" href="site.webmanifest" />
   <script src="script.js" defer></script>
+
 </head>
-<body>
-  <div class="grain" aria-hidden="true"></div>
-  <div class="reading-progress" aria-hidden="true"></div>
-  <header class="site-header">
-    <a class="wordmark" href="#top" aria-label="Matthew Hawkins, back to top">MH<span class="star">✳</span></a>
-    <nav aria-label="Main navigation">
-      <a href="#about">ABOUT</a>
-      <a href="#projects">PROJECTS</a>
-      <a href="#connect">CONNECT ↗</a>
-    </nav>
-    <span class="edition">PERSONAL SITE / 001</span>
-    <div class="display-controls" aria-label="Display preferences">
-      <button class="display-toggle" id="theme-toggle" type="button" aria-label="Dark theme" aria-pressed="false"><span class="theme-symbol" aria-hidden="true">◐</span><span id="theme-label">DARK</span></button>
-      <button class="display-toggle" id="motion-toggle" type="button" aria-label="Pause animations" aria-pressed="false"><span aria-hidden="true">◌</span><span id="motion-label">MOTION ON</span></button>
-    </div>
-  </header>
+<body><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><a class="wordmark" href="index.html" aria-label="Matthew Hawkins home">MH<span>✳</span></a>
+<nav aria-label="Main navigation"><a href="index.html#projects">WORK</a><a href="index.html#experience">EXPERIENCE</a><a href="index.html#connect">CONTACT ↗</a>
+</nav>
+<div class="display-controls"><button id="theme-toggle" type="button" aria-label="Dark theme" aria-pressed="false"><span id="theme-label">DARK</span> ◐</button><button id="motion-toggle" type="button" aria-label="Pause animations" aria-pressed="false"><span id="motion-label">MOTION ON</span> ◌</button>
+</div>
+</header>
+<main id="main">
+<section class="hero section-shell">
+<div class="hero-copy">
+<p class="eyebrow">IT SYSTEMS TECHNICIAN &amp; WEB DEVELOPER / DFW
+</p>
+<h1>MATTHEW<br>HAWKINS<span class="accent">.</span>
+</h1>
+<p class="lead">I keep systems running.<br>I build tools that make IT work clearer.
+</p>
+<p class="intro">I support enterprise infrastructure and 300+ devices, with work spanning endpoint deployment, user management, automation, and security monitoring.
+</p>
+<div class="actions"><a class="button primary" href="#projects">Explore my work ↓</a><a class="button" href="Resources/Matthew_Hawkins_Resume.pdf">View résumé ↗</a><a href="mailto:matthawkins44@gmail.com">Email me ↗</a>
+</div>
+<p class="small">Seeking IT Systems Technician and Junior / Associate Systems Administrator roles.<br>DFW or remote · Working &amp; contact hours: Mon–Fri, 8am–5pm Central.
+</p>
+</div>
+<figure class="portrait"><img src="images/Matthew_pfp.png" alt="Illustrated portrait of Matthew Hawkins" width="500" height="500">
+<figcaption>01 / THE HUMAN BEHIND THE SYSTEMS
+</figcaption>
+</figure>
+</section>
 
-  <main id="top">
-    <section class="hero section-shell" aria-labelledby="hero-title">
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-topline"><span>HELLO, INTERNET.</span><span>SCROLL TO EXPLORE ↓</span></div>
-      <div class="hero-content">
-        <div class="hero-copy reveal">
-          <p class="eyebrow"><span class="status-dot"></span> AVAILABLE FOR WHAT'S NEXT</p>
-          <h1 id="hero-title">MATTHEW<br><span>HAWKINS<span class="period">.</span></span></h1>
-          <p class="hero-intro">IT, creativity, and a curiosity for how things work. This is a little corner of the internet that's mine.</p>
-          <a class="action-link" href="#about">GET TO KNOW ME <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="portrait-wrap reveal">
-          <div class="orbit-graphic" aria-hidden="true"><span class="orbit-ring"></span><span class="orbit-star">✳</span><span class="orbit-note">ALWAYS<br>EXPLORING ↗</span></div>
-          <div class="portrait-frame" id="portrait-frame">
-            <img id="profile-photo" alt="Portrait of Matthew Hawkins" hidden>
-            <div class="portrait-placeholder" id="portrait-placeholder" aria-label="Profile photo placeholder"><span>YOUR<br>PHOTO<br>HERE ↗</span></div>
-          </div>
-          <div class="portrait-caption"><span>FIG. 01 / THE HUMAN</span><span>EST. 2026</span></div>
-        </div>
-      </div>
-      <div class="hero-bottomline"><span>DESIGNED TO BE DIFFERENT.</span><span>↓ / 01</span></div>
-    </section>
+<section id="projects" class="section-shell">
+<div class="section-label"><span>01 / SELECTED WORK</span><span>IDEAS, IMPLEMENTED</span>
+</div>
+<article class="featured">
+<div>
+<p class="eyebrow accent">FEATURED PROJECT / POWERSHELL
+</p>
+<h2>Shellify<span class="accent">↗</span>
+</h2>
+<p class="lead">From an IT task to a script you can inspect.
+</p>
+<p>A visual PowerShell builder for beginners learning commands and IT professionals assembling repeatable work. Supported templates turn your inputs into scripts without AI generation at runtime.
+</p>
+<p><strong>My contribution:</strong> technical scaffolding, product direction, UI/UX, and hosting, with AI-assisted development and feedback from IT professionals.
+</p>
+<div class="actions"><a class="button primary" href="shellify.html">Read the case study ↗</a>
+</div>
+<div class="actions"><a href="https://shellify.pages.dev/">Live application ↗</a><a href="https://github.com/Matthew-Hawk/Shellify">Source code ↗</a>
+</div>
+</div>
+<figure><a href="shellify.html"><img src="images/shellify-builder.png" alt="Shellify workspace with command search, a configured step, and PowerShell preview" width="1440" height="900" loading="lazy"></a>
+<figcaption>THE BUILDER / DISCOVER → CONFIGURE → REVIEW
+</figcaption>
+</figure>
+</article>
+<ol class="logic-chain" aria-label="How Shellify turns a task into a script">
+<li><span>01 / FIND</span><strong>Choose a task</strong>
+<p>Search the local command catalog.
+</p>
+</li>
+<li><span>02 / SELECT</span><strong>Load a template</strong>
+<p>Use a supported command with defined parameters.
+</p>
+</li>
+<li><span>03 / CONFIGURE</span><strong>Add your details</strong>
+<p>Validate inputs and assemble the script in your browser.
+</p>
+</li>
+<li><span>04 / REVIEW</span><strong>Copy the script</strong>
+<p>Review the PowerShell before running it yourself.
+</p>
+</li>
+</ol>
+<div class="supporting-grid">
+<article><img src="images/z-raid.jpg" alt="Z-Raid survival game opening screen and pixel-art direction" width="1280" height="720" loading="lazy">
+<p class="eyebrow">GAMEPLAY LOGIC / ART DIRECTION
+</p>
+<h3>Z-Raid
+</h3>
+<p>A browser survival game where choices combine character stats and hidden chance. Combat, stealth, and scavenging influence outcomes; a random roll keeps a strong choice from guaranteeing success.
+</p>
+<p><strong>My contribution:</strong> code scaffolding, art direction, storyline, and gameplay math. I adjusted the choice checks to make winning less predictable and gathered feedback through user playtesting.
+</p>
+<div class="actions"><a href="https://z-raid.pages.dev/">Live application ↗</a><a href="https://github.com/Matthew-Hawk/Z-Raid">Source code ↗</a>
+</div>
+</article>
+<article><img src="images/promptly.jpg" alt="Promptly introduction explaining task selection, details, and copying a prompt" width="1265" height="712" loading="lazy">
+<details class="project-detail">
+<summary>See the dining workflow
+</summary>
+<figure><a href="images/promptly-dining.png"><img src="images/promptly-dining.png" alt="Promptly dining workflow asking for budget and food preferences" width="1440" height="900" loading="lazy"></a>
+<figcaption>EXAMPLE INPUT / BUDGET AND PREFERENCES
+</figcaption>
+</figure>
+</details>
+<p class="eyebrow">GUIDED INTERFACES / STRUCTURED INPUTS
+</p>
+<h3>Promptly
+</h3>
+<p>A guided builder that turns everyday needs into a ready-to-paste AI prompt. Its dining template combines location, preferences such as budget, and occasion into a structured request.
+</p>
+<p><strong>My contribution:</strong> code scaffolding, UI/UX direction, and logic chains. I focused the builder on everyday users, tried the dining workflow for lunch, and invited my personal circle to test it.
+</p>
+<div class="actions"><a href="https://promptly.thehawk6353.workers.dev/#home">Live application ↗</a><a href="https://github.com/Matthew-Hawk/Promptly">Source code ↗</a>
+</div>
+</article>
+</div>
+</section>
 
-    <div class="motion-strip" aria-hidden="true">
-      <div class="motion-track"><span>STAY CURIOUS <b>✳</b> BUILD SOMETHING <b>↗</b> KEEP EXPLORING <b>✳</b> MAKE IT REAL <b>↗</b></span><span>STAY CURIOUS <b>✳</b> BUILD SOMETHING <b>↗</b> KEEP EXPLORING <b>✳</b> MAKE IT REAL <b>↗</b></span></div>
-    </div>
+<section id="experience" class="section-shell experience">
+<div class="section-label"><span>02 / PROFESSIONAL EVIDENCE</span><span>INVESTIGATE. CHANGE. VERIFY.</span>
+</div>
+<div class="section-intro">
+<h2>Systems work.<br><em>Real outcomes.</em>
+</h2>
+<div>
+<p>2+ years of professional IT experience, supported by additional personal, hands-on learning. My work covers servers, networking, virtualization, endpoint management, and security.
+</p>
+<p><strong>CompTIA A+</strong> · PER-371 Cybersecurity Incident Response &amp; Management training (TEEX, 2026).
+</p>
+<p>IT Generalist, Nov 2023–May 2025<br>IT Systems Technician, May 2025–present
+</p><a href="Resources/Matthew_Hawkins_Resume.pdf">View full experience in my résumé ↗</a>
+</div>
+</div>
+<article class="story">
+<p class="eyebrow">AN ANONYMIZED IT PROBLEM-SOLVING STORY
+</p>
+<h3>Getting incremental backups running again.
+</h3>
+<div class="story-grid">
+<div><span>01 / SITUATION</span>
+<p>Veeam incremental backups were failing. Users were not directly interrupted, but the failures left IT with concerns about recovery readiness.
+</p>
+</div>
+<div><span>02 / INVESTIGATION</span>
+<p>I examined network connectivity, DNS and DHCP configuration, and NAT-related issues to understand why the systems could not communicate reliably.
+</p>
+</div>
+<div><span>03 / ACTION</span>
+<p>I corrected the network resolution and connectivity configuration to restore communication with the backup infrastructure.
+</p>
+</div>
+<div><span>04 / RESULT</span>
+<p>I validated the network changes and confirmed incremental backups resumed successfully. This restored normal backup operations; it was not a full disaster-recovery test.
+</p>
+</div>
+</div>
+</article>
+<div class="capabilities">
+<article>
+<h3>Manage endpoints &amp; access
+</h3>
+<p>Software deployment across 300+ endpoints; AD and Exchange onboarding and offboarding. Experience building PDQ packages and MDT/PXE workflows.
+</p><a href="Resources/Matthew_Hawkins_Resume.pdf">Evidence: résumé ↗</a>
+</article>
+<article>
+<h3>Investigate infrastructure
+</h3>
+<p>DNS, DHCP, and NAT troubleshooting connected to a confirmed operational result: incremental backups working again.
+</p><a href="#experience">Evidence: backup story ↑</a>
+</article>
+<article>
+<h3>Make automation understandable
+</h3>
+<p>Shellify exposes script output alongside configured inputs. Promptly guides users from a common task to a structured request.
+</p><a href="shellify.html">Evidence: Shellify case study ↗</a>
+</article>
+<article>
+<h3>Monitor &amp; support security
+</h3>
+<p>Experience investigating phishing, monitoring Wazuh SIEM events, and creating Carbon Black application-control rules.
+</p><a href="Resources/Matthew_Hawkins_Resume.pdf">Evidence: résumé ↗</a>
+</article>
+</div>
+</section>
 
-    <section id="about" class="about section-shell" aria-labelledby="about-title">
-      <div class="section-label"><span>01 / THE INTRODUCTION</span><span>WHO I AM</span></div>
-      <div class="about-grid">
-        <h2 id="about-title" class="section-heading reveal">A BIT<br>ABOUT <em>ME.</em></h2>
-        <div class="about-copy reveal">
-          <p>I like solving problems, learning new things, and making ideas real. By day, I work in IT. Outside of that, I’m usually exploring technology, building something, or finding a new story to get lost in.</p>
-          <p>This site is an ongoing experiment. Consider it a living project rather than a finished product.</p>
-          <div class="tag-row" aria-label="Interests"><span>TECHNOLOGY</span><span>BUILDING</span><span>FILM</span><span>CURIOSITY</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="projects section-shell" aria-labelledby="projects-title">
-      <div class="section-label"><span>02 / THE BUILDLOG</span><span>GITHUB HIGHLIGHTS</span></div>
-      <div class="projects-heading reveal"><h2 id="projects-title" class="section-heading">MY LATEST<br><em>PROJECTS.</em></h2><p>A few things I've built.<br>Try them live or explore the code.</p></div>
-      <div class="project-grid" id="project-grid" aria-label="Favorite projects"></div>
-    </section>
-
-    <section id="connect" class="connect section-shell" aria-labelledby="connect-title">
-      <div class="section-label"><span>03 / STAY IN TOUCH</span><span>THE INTERNET IS SMALL</span></div>
-      <h2 id="connect-title" class="section-heading reveal">LET'S<br><em>CONNECT↗</em></h2>
-      <p class="connect-intro reveal">Elsewhere on the internet, you can find me here.</p>
-      <div class="social-grid reveal">
-        <a class="social-link" href="https://www.linkedin.com/in/matthew-hawk/?isSelfProfile=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.53v16.94C2 21.32 2.69 22 3.55 22h16.9c.86 0 1.55-.68 1.55-1.53V3.53C22 2.68 21.31 2 20.45 2ZM7.93 18.75H4.98V9.2h2.95v9.55ZM6.45 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42Zm12.3 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.3h.04c.39-.74 1.35-1.53 2.79-1.53 2.99 0 3.58 1.97 3.58 4.53v5.25Z"/></svg>
-          <span>LINKEDIN</span><span class="social-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="social-link" href="https://www.instagram.com/__matthew__hawk/" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in new tab)">
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.8" cy="6.3" r="1" fill="currentColor" stroke="none"/></svg>
-          <span>INSTAGRAM</span><span class="social-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="social-link" href="https://www.youtube.com/@I_Kyzel" target="_blank" rel="noopener noreferrer" aria-label="YouTube (opens in new tab)">
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M21.58 6.2a2.67 2.67 0 0 0-1.88-1.89C18.03 3.86 12 3.86 12 3.86s-6.03 0-7.7.45A2.67 2.67 0 0 0 2.42 6.2 27.8 27.8 0 0 0 2 12a27.8 27.8 0 0 0 .42 5.8 2.67 2.67 0 0 0 1.88 1.89c1.67.45 7.7.45 7.7.45s6.03 0 7.7-.45a2.67 2.67 0 0 0 1.88-1.89A27.8 27.8 0 0 0 22 12a27.8 27.8 0 0 0-.42-5.8ZM10 15.49V8.51L16 12l-6 3.49Z"/></svg>
-          <span>YOUTUBE</span><span class="social-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="social-link" href="https://github.com/Matthew-Hawk" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)">
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-2.1c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.64-1.25-1.64-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.71 2.63 1.22 3.27.93.1-.72.39-1.22.71-1.5-2.5-.28-5.13-1.25-5.13-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.1 1.15a10.8 10.8 0 0 1 5.62 0c2.15-1.45 3.09-1.15 3.09-1.15.62 1.55.23 2.7.12 2.98.72.79 1.15 1.79 1.15 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.04.76 2.1v3.08c0 .3.21.65.78.54A11.25 11.25 0 0 0 12 .75Z"/></svg>
-          <span>GITHUB</span><span class="social-arrow" aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer"><span>© <span id="year">2026</span> MATTHEW HAWKINS</span><span>MADE WITH HTML + CSS + JS</span><a href="#top">BACK TO TOP ↑</a></footer>
+<section id="connect" class="section-shell contact">
+<p class="eyebrow">03 / LET’S TALK
+</p>
+<h2>Reliable systems.<br><em>Useful tools.</em>
+</h2>
+<p>Interested in infrastructure, automation, and security roles in DFW or remotely.
+</p>
+<div class="actions"><a class="button primary" href="mailto:matthawkins44@gmail.com">Email me ↗</a><a href="Resources/Matthew_Hawkins_Resume.pdf">View résumé ↗</a><a href="https://www.linkedin.com/in/matthew-hawk/">LinkedIn ↗</a><a href="https://github.com/Matthew-Hawk">GitHub ↗</a>
+</div>
+<p class="small">matthawkins44@gmail.com · Mon–Fri, 8am–5pm Central
+</p>
+</section>
+</main>
+<footer><span>© <span id="year">2026</span> MATTHEW HAWKINS</span><span>IT SYSTEMS / AUTOMATION / WEB</span><a href="#main">BACK TO TOP ↑</a>
+</footer>
 </body>
 </html>
