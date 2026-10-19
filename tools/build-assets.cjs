@@ -9,12 +9,15 @@ const deps=process.env.PORTFOLIO_DEPS || '';
 const sharp=require(path.join(deps,'sharp'));
 const {chromium}=require(path.join(deps,'playwright'));
 (async()=>{
- // Generate two sizes per source. withoutEnlargement avoids upscaling smaller
+ // Generate responsive sizes. withoutEnlargement avoids upscaling smaller
  // originals; the HTML srcset declarations tell browsers which size to request.
+ // Shellify has dense UI text: preserve it with lossless WebP and a 2x variant.
  for(const name of ['Matthew_pfp.png','shellify-builder.png','promptly-dining.png','promptly.jpg','z-raid.jpg']){
   const stem=name.replace(/\.(png|jpg)$/,'');
-  await sharp('images/'+name).resize({width:name==='Matthew_pfp.png'?500:1440,withoutEnlargement:true}).webp({quality:85}).toFile('images/'+stem+'.webp');
-  await sharp('images/'+name).resize({width:name==='Matthew_pfp.png'?160:720,withoutEnlargement:true}).webp({quality:82}).toFile('images/'+stem+'-small.webp');
+  const textHeavy=name==='shellify-builder.png';
+  await sharp('images/'+name).resize({width:name==='Matthew_pfp.png'?500:1440,withoutEnlargement:true}).webp(textHeavy?{lossless:true}:{quality:85}).toFile('images/'+stem+'.webp');
+  await sharp('images/'+name).resize({width:name==='Matthew_pfp.png'?160:720,withoutEnlargement:true}).webp(textHeavy?{lossless:true}:{quality:82}).toFile('images/'+stem+'-small.webp');
+  if(textHeavy) await sharp('images/'+name).webp({lossless:true}).toFile('images/'+stem+'-2x.webp');
  }
  // Reuse the exported favicon builder before rendering the social cards.
  await require('./build-favicons.cjs')();

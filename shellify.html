@@ -84,7 +84,9 @@
 </p>
 <div class="actions"><a href="https://shellify.pages.dev/" aria-label="Shellify live application" rel="noopener noreferrer">Live application <span aria-hidden="true">↗</span></a><a href="https://github.com/Matthew-Hawk/Shellify" aria-label="Shellify source code on GitHub" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
 </div>
-<figure class="case-image"><picture><source srcset="images/shellify-builder-small.webp 720w, images/shellify-builder.webp 1440w" sizes="(max-width:600px) calc(100vw - 48px), (max-width:900px) 90vw, 50vw" type="image/webp"><img src="images/shellify-builder.png" alt="Shellify’s three-panel workspace: command catalog, editable steps, and generated PowerShell" width="1440" height="900"></picture>
+<!-- Match sizes to the full-width figure (capped at 1100px), not the homepage
+     grid. This lets high-density displays request the 2880px source. -->
+<figure class="case-image"><picture><source srcset="images/shellify-builder-small.webp 720w, images/shellify-builder.webp 1440w, images/shellify-builder-2x.webp 2880w" sizes="(max-width:600px) calc(100vw - 48px), (max-width:1222px) 90vw, 1100px" type="image/webp"><img src="images/shellify-builder.png" alt="Shellify’s three-panel workspace: command catalog, editable steps, and generated PowerShell" width="1440" height="900"></picture>
 <figcaption>COMMAND DISCOVERY, CONFIGURATION, AND OUTPUT IN ONE WORKSPACE.
 </figcaption>
 </figure>
