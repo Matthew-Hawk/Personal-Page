@@ -4,9 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#eeeae2">
-<title>Shellify Case Study | Matthew Hawkins
-</title>
-<meta name="description" content="How Matthew Hawkins shaped Shellify: a deterministic PowerShell builder, an inactive-user workflow, testing, design tradeoffs, and results.">  <script>
+<title>Shellify case study | Matthew Hawkins</title>
+<meta name="description" content="How I shaped Shellify, a visual PowerShell builder: product decisions, AI-assisted development, testing, practical outcomes, and honest limits.">  <script>
     // Apply saved preferences before the first paint.
     try {
       const theme = localStorage.getItem('portfolio-theme');
@@ -18,9 +17,25 @@
     }
   </script>
 
+
+<link rel="canonical" href="https://personal-page.thehawk6353.workers.dev/shellify.html">
+<meta property="og:title" content="Shellify case study | Matthew Hawkins">
+<meta property="og:description" content="How I shaped Shellify, a visual PowerShell builder: product decisions, AI-assisted development, testing, practical outcomes, and honest limits.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://personal-page.thehawk6353.workers.dev/shellify.html">
+<meta property="og:image" content="https://personal-page.thehawk6353.workers.dev/images/shellify-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shellify case study | Matthew Hawkins">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shellify case study | Matthew Hawkins">
+<meta name="twitter:description" content="How I shaped Shellify, a visual PowerShell builder: product decisions, AI-assisted development, testing, practical outcomes, and honest limits.">
+<meta name="twitter:image" content="https://personal-page.thehawk6353.workers.dev/images/shellify-share.png">
+<meta name="twitter:image:alt" content="Shellify case study | Matthew Hawkins">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Matthew Hawkins", "jobTitle": "IT Systems Technician", "address": {"@type": "PostalAddress", "addressRegion": "DFW, Texas"}, "sameAs": ["https://www.linkedin.com/in/matthew-hawk/", "https://github.com/Matthew-Hawk"], "url": "https://personal-page.thehawk6353.workers.dev/"}</script>
 <link rel="stylesheet" href="style.css">
 
-<link rel="icon" type="image/png" href="Favicon/apple-touch-icon.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="Favicon/favicon-96x96.png" sizes="96x96" />
 
 <link rel="icon" type="image/svg+xml" href="Favicon/favicon.svg" />
 
@@ -33,23 +48,23 @@
 
 </head>
 <body><a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><a class="wordmark" href="index.html" aria-label="Matthew Hawkins home">MH<span>✳</span></a>
-<nav aria-label="Main navigation"><a href="index.html#projects">WORK</a><a href="index.html#experience">EXPERIENCE</a><a href="index.html#connect">CONTACT ↗</a>
+<header class="site-header"><a class="wordmark" href="index.html" aria-label="Matthew Hawkins — home">MH<span aria-hidden="true">✳</span></a>
+<nav aria-label="Main navigation"><a href="index.html#projects">Work</a><a href="index.html#experience">Experience</a><a href="index.html#connect">Contact <span aria-hidden="true">↗</span></a>
 </nav>
 <div class="display-controls"><button id="theme-toggle" type="button" aria-label="Dark theme" aria-pressed="false"><span id="theme-label">DARK</span> ◐</button><button id="motion-toggle" type="button" aria-label="Pause animations" aria-pressed="false"><span id="motion-label">MOTION ON</span> ◌</button>
 </div>
 </header>
 <main id="main">
-<section class="section-shell case-hero"><a href="index.html#projects">← Selected work</a>
+<section class="section-shell case-hero"><a href="index.html#projects"><span aria-hidden="true">←</span> Selected work</a>
 <p class="eyebrow accent">CASE STUDY / SHELLIFY
 </p>
 <h1>Make the script<br><em>visible.</em>
 </h1>
 <p class="lead">A visual PowerShell builder for learning commands and making everyday IT scripting easier.
 </p>
-<div class="actions"><a href="https://shellify.pages.dev/">Live application ↗</a><a href="https://github.com/Matthew-Hawk/Shellify">Source code ↗</a>
+<div class="actions"><a href="https://shellify.pages.dev/" aria-label="Shellify live application" rel="noopener noreferrer">Live application <span aria-hidden="true">↗</span></a><a href="https://github.com/Matthew-Hawk/Shellify" aria-label="Shellify source code on GitHub" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
 </div>
-<figure class="case-image"><img src="images/shellify-builder.png" alt="Shellify’s three-panel workspace: command catalog, editable steps, and generated PowerShell" width="1440" height="900">
+<figure class="case-image"><picture><source srcset="images/shellify-builder.webp" type="image/webp"><img src="images/shellify-builder.png" alt="Shellify’s three-panel workspace: command catalog, editable steps, and generated PowerShell" width="1440" height="900"></picture>
 <figcaption>COMMAND DISCOVERY, CONFIGURATION, AND OUTPUT IN ONE WORKSPACE.
 </figcaption>
 </figure>
@@ -69,7 +84,7 @@
 <h2>My role
 </h2>
 <div>
-<p>I developed the technical scaffolding and product direction, shaped the UI/UX, and handled hosting. AI assisted with development, and I sought feedback from other IT professionals.
+<p>I developed the technical scaffolding and product direction, shaped the UI/UX, and handled hosting. I used AI-assisted development, and I sought feedback from other IT professionals.
 </p>
 <p>The contributions and practical outcomes here are my account of the project. Implementation details are grounded in the source linked below.
 </p>
@@ -102,7 +117,7 @@
 <p>I chose not to use AI to generate scripts at runtime. Shellify uses a local catalog of supported commands, validates the supplied values, and assembles PowerShell deterministically.
 </p>
 <p>This makes output inspectable and repeatable. The tradeoff is scope: a task needs a supported template; arbitrary requests do not become new commands automatically. Deterministic output still needs review for the environment where it will run.
-</p><a href="https://github.com/Matthew-Hawk/Shellify/blob/main/dist/js/generator.js">Read the generation logic ↗</a>
+</p><a href="https://github.com/Matthew-Hawk/Shellify/blob/main/dist/js/generator.js" rel="noopener noreferrer">Read the generation logic <span aria-hidden="true">↗</span></a>
 </div>
 </div>
 <div class="case-row">
@@ -112,7 +127,7 @@
 <p>Fitting the builder on the screen while keeping it easy to navigate was my hardest design problem.
 </p>
 <p>The implementation uses a viewport-height workspace, separately scrollable panels, and responsive panel layouts. Users can keep configuration and preview close together, though smaller screens require switching views or scrolling within panels.
-</p><a href="https://github.com/Matthew-Hawk/Shellify/blob/main/dist/styles.css">Inspect the workspace layout ↗</a>
+</p><a href="https://github.com/Matthew-Hawk/Shellify/blob/main/dist/styles.css" rel="noopener noreferrer">Inspect the workspace layout <span aria-hidden="true">↗</span></a>
 </div>
 </div>
 <article class="sample">
@@ -152,11 +167,11 @@ Search-ADAccount -AccountInactive -UsersOnly -DateTime (Get-Date).AddDays(-90) -
 <p>I ran Active Directory scripts in my work environment and tried other scripts on my work computer.
 </p>
 <p>The repository also includes automated checks for template generation, parameter validation, quoting, search matching, and AD query limits. During this portfolio update, all 12 tests in the engine suite passed. These tests verify generation behavior; they do not establish that every generated script works in every environment.
-</p><a href="https://github.com/Matthew-Hawk/Shellify/blob/main/test/engine.test.js">Inspect the engine tests ↗</a>
+</p><a href="https://github.com/Matthew-Hawk/Shellify/blob/main/test/engine.test.js" rel="noopener noreferrer">Inspect the engine tests <span aria-hidden="true">↗</span></a>
 </div>
 </div>
 <div class="case-row">
-<h2>Results &amp; limits
+<h2>Results and limits
 </h2>
 <div>
 <p>Using Shellify helped me identify unused applications I wanted to uninstall and supported my Active Directory cleanup at work. These are qualitative, personally observed results; no time savings or adoption metrics are claimed.
@@ -167,11 +182,12 @@ Search-ADAccount -AccountInactive -UsersOnly -DateTime (Get-Date).AddDays(-90) -
 </p>
 </div>
 </div>
-<div class="actions"><a class="button primary" href="https://shellify.pages.dev/">Explore Shellify ↗</a><a href="index.html#connect">Talk about my work ↗</a>
+<div class="actions"><a class="button primary" href="https://shellify.pages.dev/" rel="noopener noreferrer">Explore Shellify <span aria-hidden="true">↗</span></a><a href="index.html#connect">Talk about my work <span aria-hidden="true">↗</span></a>
 </div>
 </section>
 </main>
-<footer><span>© <span id="year">2026</span> MATTHEW HAWKINS</span><span>IT SYSTEMS / AUTOMATION / WEB</span><a href="#main">BACK TO TOP ↑</a>
+<footer><span>© <span id="year">2026</span> MATTHEW HAWKINS</span> <span>IT SYSTEMS / AUTOMATION / WEB</span><a href="#main">Back to top <span aria-hidden="true">↑</span></a>
+<span>Last updated: October 2026</span>
 </footer>
 </body>
 </html>
