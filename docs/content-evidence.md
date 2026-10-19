@@ -1,12 +1,12 @@
 # Content evidence and open items
 
-Reviewed 15 October 2026. Changes remain local; no deployment.
+Originally reviewed 15 October 2026; updated 19 October 2026. Changes remain local; no deployment. See [final polish](final-polish.md) for current checks and outstanding confirmation items.
 
 ## Personal facts
 
 The supplied brief and résumé support target roles, 300+ endpoint scope, responsibilities, CompTIA A+, and PER-371 training. Training is not labeled as a certification. Matthew clarified 2+ years of professional IT work plus additional personal experience, and confirmed Monday–Friday, 8am–5pm Central for both work and recruiter contact.
 
-The PDF is unchanged and explicitly authorized for publication, including its existing contact and employer details. The backup story itself omits employer, customer, and system identifiers. Motivation, contributions, manual testing, and qualitative outcomes come from Matthew’s notes; source code cannot establish these facts.
+The PDF is explicitly authorized for publication, including its existing contact and employer details. Its title and author metadata were updated; its page count and extracted page text are unchanged. The backup story itself omits employer, customer, and system identifiers. Motivation, contributions, manual testing, and qualitative outcomes come from Matthew’s notes; source code cannot establish these facts.
 
 ## Implementation evidence
 

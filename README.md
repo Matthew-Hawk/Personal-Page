@@ -18,6 +18,6 @@ No PowerShell runs from this portfolio. The fixed sample contains default parame
 
 Run `node --check script.js`. For browser QA, set `PLAYWRIGHT_MODULE` to an installed Playwright module path, or install `@playwright/test` locally, then run `node tools/check-browser.cjs` from this directory. It uses Edge and file URLs, and saves screenshots under `docs/screenshots`.
 
-See [content evidence and open items](docs/content-evidence.md) for sources, missing content, and verification limits. Nothing was deployed.
+See [content evidence and open items](docs/content-evidence.md) for sources and [the final polish changelog](docs/final-polish.md) for changes, confirmation items, validation, and deployment follow-up. Changes are committed locally; nothing was deployed.
 
 For future publication, serve only the public HTML, CSS, JavaScript, images, favicon assets, manifest, and authorized résumé. Exclude the supplied brief, internal documentation, research files, and tools.
