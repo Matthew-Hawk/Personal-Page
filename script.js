@@ -13,12 +13,12 @@ function updateDisplay() {
   const paused = root.dataset.motion === 'paused';
   themeToggle.setAttribute('aria-pressed', String(dark));
   themeToggle.setAttribute('aria-label', 'Use dark theme');
-  document.querySelector('#theme-label').textContent = dark ? 'LIGHT' : 'DARK';
+  document.querySelector('#theme-label').textContent = 'DARK';
   motionToggle.setAttribute('aria-pressed', String(paused));
-  motionToggle.setAttribute('aria-label', 'Pause animations');
   motionToggle.disabled = systemMotion.matches;
   motionToggle.title = systemMotion.matches ? 'Reduced motion is enabled in your device settings.' : 'Pause or resume decorative motion';
   document.querySelector('#motion-label').textContent = systemMotion.matches ? 'REDUCED' : (paused ? 'MOTION OFF' : 'MOTION ON');
+  motionToggle.setAttribute('aria-label', systemMotion.matches ? 'Reduced motion enabled by device settings' : (paused ? 'Motion off — resume animations' : 'Motion on — pause animations'));
   document.querySelector('meta[name="theme-color"]').content = dark ? '#161817' : '#eeeae2';
 }
 themeToggle.addEventListener('click', () => {
