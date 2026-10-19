@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="384" viewBox="0 0 1280 384" role="img" aria-labelledby="title desc">
+<title id="title">Matthew Hawkins — Digital Craftsman</title><desc id="desc">IT systems, automation, and web. Systems thinking. Creative instinct.</desc>
+<rect width="1280" height="384" fill="#171715"/>
+<g stroke="#eeeae2" stroke-opacity=".06"><path d="M0 64H1280M0 128H1280M0 192H1280M0 256H1280M0 320H1280M64 0V384M128 0V384M192 0V384M256 0V384M320 0V384M384 0V384M448 0V384M512 0V384M576 0V384M640 0V384M704 0V384M768 0V384M832 0V384M896 0V384M960 0V384M1024 0V384M1088 0V384M1152 0V384M1216 0V384"/></g>
+<rect x="0" y="0" width="10" height="384" fill="#ff7967"/>
+<text x="56" y="52" fill="#ff7967" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" letter-spacing="3">DIGITAL CRAFTSMAN / PORTFOLIO</text>
+<text x="54" y="168" fill="#eeeae2" font-family="Arial,Helvetica,sans-serif" font-size="96" font-weight="900" letter-spacing="-5">MATTHEW HAWKINS<tspan fill="#ff7967">.</tspan></text>
+<text x="58" y="220" fill="#eeeae2" font-family="Arial,Helvetica,sans-serif" font-size="26" letter-spacing="-0.5">Systems thinking. Creative instinct.</text>
+<path d="M58 256H1222" stroke="#eeeae2" stroke-opacity=".25"/>
+<g font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" letter-spacing="2"><text x="58" y="310" fill="#ff7967">01 / IT SYSTEMS</text><text x="356" y="310" fill="#eeeae2">02 / AUTOMATION</text><text x="694" y="310" fill="#eeeae2">03 / WEB</text></g>
+<path d="M1156 295H1212M1212 295L1188 271M1212 295L1188 319" fill="none" stroke="#ff7967" stroke-width="5"/>
+<text x="58" y="355" fill="#aaa99f" font-family="Arial,Helvetica,sans-serif" font-size="11" letter-spacing="2">BUILD USEFUL THINGS. KEEP THEM RUNNING.</text>
+</svg>
