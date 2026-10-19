@@ -1,23 +1,29 @@
 <!doctype html>
 <html lang="en">
+<!-- Static page: content lives here, presentation in style.css, and optional
+     controls in script.js. No build step is needed to serve these files. -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#eeeae2">
 <title>Shellify case study | Matthew Hawkins</title>
 <meta name="description" content="How I shaped Shellify, a visual PowerShell builder: product decisions, AI-assisted development, testing, practical outcomes, and honest limits.">  <script>
+    // This runs before the stylesheet to avoid a flash of the wrong theme.
+    // Keep the preference keys and data attributes aligned with script.js.
     // Apply saved preferences before the first paint.
     try {
       const theme = localStorage.getItem('portfolio-theme');
       document.documentElement.dataset.theme = theme === 'dark' || theme === 'light' ? theme : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       document.documentElement.dataset.motion = localStorage.getItem('portfolio-motion') === 'paused' || matchMedia('(prefers-reduced-motion: reduce)').matches ? 'paused' : 'on';
     } catch {
+      // If storage is blocked, fall back to device preferences for this visit.
       document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       document.documentElement.dataset.motion = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'paused' : 'on';
     }
   </script>
 
 
+<!-- Search and social previews: use absolute public URLs for these assets. -->
 <link rel="canonical" href="https://personal-page.thehawk6353.workers.dev/shellify.html">
 <meta property="og:title" content="Shellify case study | Matthew Hawkins">
 <meta property="og:description" content="How I shaped Shellify, a visual PowerShell builder: product decisions, AI-assisted development, testing, practical outcomes, and honest limits.">
@@ -32,12 +38,17 @@
 <meta name="twitter:description" content="How I shaped Shellify, a visual PowerShell builder: product decisions, AI-assisted development, testing, practical outcomes, and honest limits.">
 <meta name="twitter:image" content="https://personal-page.thehawk6353.workers.dev/images/shellify-share.png">
 <meta name="twitter:image:alt" content="Shellify case study | Matthew Hawkins">
+<!-- Structured data describes the person to search engines; it is JSON,
+     not executable JavaScript. Keep comments outside this script block. -->
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Matthew Hawkins", "jobTitle": "IT Systems Technician", "address": {"@type": "PostalAddress", "addressRegion": "DFW, Texas"}, "sameAs": ["https://www.linkedin.com/in/matthew-hawk/", "https://github.com/Matthew-Hawk"], "url": "https://personal-page.thehawk6353.workers.dev/"}</script>
+<!-- Fonts and shared styles; preconnect starts the remote connection early. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="style.css">
 
+<!-- Browser/device icons. The manifest describes installable app appearance;
+     it does not add offline caching. The query suffix versions cached assets. -->
 <link rel="icon" type="image/png" href="Favicon/favicon-96x96.png?v=mh2" sizes="96x96" />
 
 <link rel="icon" type="image/svg+xml" href="Favicon/favicon.svg?v=mh2" />
@@ -47,17 +58,23 @@
 <link rel="apple-touch-icon" sizes="180x180" href="Favicon/apple-touch-icon.png?v=mh2" />
 
 <link rel="manifest" href="site.webmanifest?v=mh2" />
+<!-- defer runs the shared controls after the HTML has been parsed. -->
   <script src="script.js" defer></script>
 
 </head>
+<!-- The first keyboard link jumps to main, skipping the repeated header. -->
 <body><a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><a class="wordmark" href="index.html" aria-label="MH — Matthew Hawkins — home"><span aria-hidden="true">MH</span><span aria-hidden="true"></span></a>
 <nav aria-label="Main navigation"><a href="index.html#projects">Work</a><a href="index.html#experience">Experience</a><a href="index.html#connect">Contact <span aria-hidden="true">↗</span></a>
 </nav>
+<!-- These IDs connect the buttons and labels to script.js. aria-pressed
+     exposes each toggle state to assistive technology. Keep IDs unique. -->
 <div class="display-controls"><button id="theme-toggle" type="button" aria-label="Dark theme" aria-pressed="false"><span id="theme-label">DARK</span> <span aria-hidden="true">◐</span></button><button id="motion-toggle" type="button" aria-label="Pause animations" aria-pressed="false"><span id="motion-label">MOTION ON</span> <span aria-hidden="true">◌</span></button>
 </div>
 </header>
 <main id="main">
+<!-- Case-study introduction and product screenshot. The header links back
+     to homepage sections rather than anchors on this page. -->
 <section class="section-shell case-hero"><a href="index.html#projects"><span aria-hidden="true">←</span> Selected work</a>
 <p class="eyebrow accent">CASE STUDY / SHELLIFY
 </p>
@@ -72,6 +89,7 @@
 </figcaption>
 </figure>
 </section>
+<!-- Repeated case-row blocks share the heading/text layout in style.css. -->
 <section class="section-shell case-body">
 <div class="case-row">
 <h2>The problem
@@ -133,6 +151,8 @@
 </p><a href="https://github.com/Matthew-Hawk/Shellify/blob/main/dist/styles.css" rel="noopener noreferrer">Inspect the workspace layout <span aria-hidden="true">↗</span></a>
 </div>
 </div>
+<!-- This PowerShell is fixed display text, not code executed by the website.
+     Preserve the sample when editing the surrounding explanation or markup. -->
 <article class="sample">
 <p class="eyebrow">FIXED SAMPLE / GENERATED FROM SHELLIFY’S EXISTING LOGIC
 </p>
@@ -142,6 +162,8 @@
 </p>
 <p>This is a fixed script, not an interactive generator. Nothing on this portfolio executes PowerShell or connects to a directory.
 </p>
+<!-- Native disclosure works without JS. #sample-code supplies copy text;
+     #copy-status announces results, and the button is enabled by script.js. -->
 <details>
 <summary>View the complete sample script
 </summary><pre tabindex="0" aria-label="PowerShell sample"><code id="sample-code"># Shellify | Explainable PowerShell, built step by step.
@@ -189,6 +211,7 @@ Search-ADAccount -AccountInactive -UsersOnly -DateTime (Get-Date).AddDays(-90) -
 </div>
 </section>
 </main>
+<!-- script.js refreshes #year; the hardcoded year is the no-JS fallback. -->
 <footer><span>© <span id="year">2026</span> MATTHEW HAWKINS</span> <span>IT SYSTEMS / AUTOMATION / WEB</span><a href="#main">Back to top <span aria-hidden="true">↑</span></a>
 <span>Last updated: October 2026</span>
 </footer>

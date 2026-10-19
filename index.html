@@ -1,23 +1,29 @@
 <!doctype html>
 <html lang="en">
+<!-- Static page: content lives here, presentation in style.css, and optional
+     controls in script.js. No build step is needed to serve these files. -->
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#eeeae2">
 <title>Matthew Hawkins | IT Systems &amp; Automation</title>
 <meta name="description" content="IT Systems Technician in DFW. Endpoint deployment, infrastructure troubleshooting, and inspectable automation tools, with project evidence.">  <script>
+    // This runs before the stylesheet to avoid a flash of the wrong theme.
+    // Keep the preference keys and data attributes aligned with script.js.
     // Apply saved preferences before the first paint.
     try {
       const theme = localStorage.getItem('portfolio-theme');
       document.documentElement.dataset.theme = theme === 'dark' || theme === 'light' ? theme : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       document.documentElement.dataset.motion = localStorage.getItem('portfolio-motion') === 'paused' || matchMedia('(prefers-reduced-motion: reduce)').matches ? 'paused' : 'on';
     } catch {
+      // If storage is blocked, fall back to device preferences for this visit.
       document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       document.documentElement.dataset.motion = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'paused' : 'on';
     }
   </script>
 
 
+<!-- Search and social previews: use absolute public URLs for these assets. -->
 <link rel="canonical" href="https://personal-page.thehawk6353.workers.dev/">
 <meta property="og:title" content="Matthew Hawkins | IT Systems &amp; Automation">
 <meta property="og:description" content="IT Systems Technician in DFW. Endpoint deployment, infrastructure troubleshooting, and inspectable automation tools, with project evidence.">
@@ -32,12 +38,17 @@
 <meta name="twitter:description" content="IT Systems Technician in DFW. Endpoint deployment, infrastructure troubleshooting, and inspectable automation tools, with project evidence.">
 <meta name="twitter:image" content="https://personal-page.thehawk6353.workers.dev/images/portfolio-share.png">
 <meta name="twitter:image:alt" content="Matthew Hawkins | IT Systems &amp; Automation">
+<!-- Structured data describes the person to search engines; it is JSON,
+     not executable JavaScript. Keep comments outside this script block. -->
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Matthew Hawkins", "jobTitle": "IT Systems Technician", "address": {"@type": "PostalAddress", "addressRegion": "DFW, Texas"}, "sameAs": ["https://www.linkedin.com/in/matthew-hawk/", "https://github.com/Matthew-Hawk"], "url": "https://personal-page.thehawk6353.workers.dev/"}</script>
+<!-- Fonts and shared styles; preconnect starts the remote connection early. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="style.css">
 
+<!-- Browser/device icons. The manifest describes installable app appearance;
+     it does not add offline caching. The query suffix versions cached assets. -->
 <link rel="icon" type="image/png" href="Favicon/favicon-96x96.png?v=mh2" sizes="96x96" />
 
 <link rel="icon" type="image/svg+xml" href="Favicon/favicon.svg?v=mh2" />
@@ -47,17 +58,22 @@
 <link rel="apple-touch-icon" sizes="180x180" href="Favicon/apple-touch-icon.png?v=mh2" />
 
 <link rel="manifest" href="site.webmanifest?v=mh2" />
+<!-- defer runs the shared controls after the HTML has been parsed. -->
   <script src="script.js" defer></script>
 
 </head>
+<!-- The first keyboard link jumps to main, skipping the repeated header. -->
 <body><a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><a class="wordmark" href="index.html" aria-label="MH — Matthew Hawkins — home"><span aria-hidden="true">MH</span><span aria-hidden="true"></span></a>
 <nav aria-label="Main navigation"><a href="#projects">Work</a><a href="#experience">Experience</a><a href="#connect">Contact <span aria-hidden="true">↗</span></a>
 </nav>
+<!-- These IDs connect the buttons and labels to script.js. aria-pressed
+     exposes each toggle state to assistive technology. Keep IDs unique. -->
 <div class="display-controls"><button id="theme-toggle" type="button" aria-label="Dark theme" aria-pressed="false"><span id="theme-label">DARK</span> <span aria-hidden="true">◐</span></button><button id="motion-toggle" type="button" aria-label="Pause animations" aria-pressed="false"><span id="motion-label">MOTION ON</span> <span aria-hidden="true">◌</span></button>
 </div>
 </header>
 <main id="main">
+<!-- Introduction and primary actions. section-shell supplies the shared gutter. -->
 <section class="hero section-shell">
 <div class="hero-copy">
 <p class="eyebrow">IT SYSTEMS TECHNICIAN &amp; WEB DEVELOPER / DFW
@@ -74,12 +90,16 @@ HAWKINS<span class="accent">.</span>
 <p class="small">Seeking IT Systems Technician and Junior/Associate Systems Administrator roles.<br>DFW or remote.
 </p>
 </div>
+<!-- The browser chooses a WebP size using srcset/sizes; img is the fallback.
+     Width and height reserve space while the image loads to reduce layout shifts. -->
 <figure class="portrait"><picture><source srcset="images/Matthew_pfp-small.webp 160w, images/Matthew_pfp.webp 500w" sizes="(max-width:600px) 70px, (max-width:1100px) 30vw, 390px" type="image/webp"><img src="images/Matthew_pfp.png" alt="Illustrated portrait of Matthew Hawkins" width="500" height="500"></picture>
 <figcaption>01 / THE HUMAN BEHIND THE SYSTEMS
 </figcaption>
 </figure>
 </section>
 
+<!-- Selected work: featured project, workflow explanation, then smaller projects.
+     This ID is also the destination of the header Work link. -->
 <section id="projects" class="section-shell">
 <div class="section-label"><span>01 / SELECTED WORK</span> <span>IDEAS, IMPLEMENTED</span>
 </div>
@@ -107,6 +127,7 @@ HAWKINS<span class="accent">.</span>
 </figcaption>
 </figure>
 </article>
+<!-- Ordered list keeps the workflow meaningful without its visual grid/arrows. -->
 <ol class="logic-chain" aria-label="How Shellify turns a task into a script">
 <li><span>01 / FIND</span><strong>Choose a task</strong>
 <p>Search the local command catalog.
@@ -127,6 +148,7 @@ HAWKINS<span class="accent">.</span>
 </ol>
 <h2 class="range-heading">Also built: range beyond IT</h2>
 <p>These projects explore structured logic, interface design, and art direction alongside my IT work.</p>
+<!-- Below-the-fold project images load lazily to avoid competing with the hero. -->
 <div class="supporting-grid">
 <article><picture><source srcset="images/z-raid-small.webp 720w, images/z-raid.webp 1280w" sizes="(max-width:600px) calc(100vw - 48px), (max-width:900px) 90vw, 50vw" type="image/webp"><img src="images/z-raid.jpg" alt="Z-Raid survival game opening screen and pixel-art direction" width="1280" height="720" loading="lazy"></picture>
 <p class="eyebrow">GAMEPLAY LOGIC / ART DIRECTION
@@ -165,6 +187,7 @@ HAWKINS<span class="accent">.</span>
 </div>
 </section>
 
+<!-- Experience and evidence. Keep anchor IDs stable for incoming section links. -->
 <section id="experience" class="section-shell experience">
 <div class="section-label"><span>02 / PROFESSIONAL EVIDENCE</span> <span>INVESTIGATE. CHANGE. VERIFY.</span>
 </div>
@@ -190,6 +213,7 @@ HAWKINS<span class="accent">.</span>
 <div><dt>Automation &amp; web</dt><dd>PowerShell, Bash, Python (basic), HTML, CSS, JavaScript</dd></div>
 </dl>
 </section>
+<!-- Self-contained troubleshooting story linked from the capability cards. -->
 <article id="backup-story" class="story">
 <p class="eyebrow">AN ANONYMIZED IT PROBLEM-SOLVING STORY
 </p>
@@ -244,6 +268,7 @@ HAWKINS<span class="accent">.</span>
 </div>
 </section>
 
+<!-- Contact actions use ordinary links, so they work without JavaScript. -->
 <section id="connect" class="section-shell contact">
 <p class="eyebrow">03 / LET’S TALK
 </p>
@@ -257,6 +282,7 @@ HAWKINS<span class="accent">.</span>
 </p>
 </section>
 </main>
+<!-- script.js refreshes #year; the hardcoded year is the no-JS fallback. -->
 <footer><span>© <span id="year">2026</span> MATTHEW HAWKINS</span> <span>IT SYSTEMS / AUTOMATION / WEB</span><a href="#main">Back to top <span aria-hidden="true">↑</span></a>
 <span>Last updated: October 2026</span>
 </footer>
