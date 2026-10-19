@@ -12,9 +12,10 @@ function updateDisplay() {
   const dark = root.dataset.theme === 'dark';
   const paused = root.dataset.motion === 'paused';
   themeToggle.setAttribute('aria-pressed', String(dark));
-  themeToggle.setAttribute('aria-label', 'Dark theme');
+  themeToggle.setAttribute('aria-label', 'Use dark theme');
   document.querySelector('#theme-label').textContent = dark ? 'LIGHT' : 'DARK';
   motionToggle.setAttribute('aria-pressed', String(paused));
+  motionToggle.setAttribute('aria-label', 'Pause animations');
   motionToggle.disabled = systemMotion.matches;
   motionToggle.title = systemMotion.matches ? 'Reduced motion is enabled in your device settings.' : 'Pause or resume decorative motion';
   document.querySelector('#motion-label').textContent = systemMotion.matches ? 'REDUCED' : (paused ? 'MOTION OFF' : 'MOTION ON');
