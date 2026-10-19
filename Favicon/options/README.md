@@ -1,6 +1,6 @@
 # Favicon options
 
-Review only; the current site favicon remains active.
+Option 02, the MH monogram, is the active site favicon. Other concepts remain available for review.
 
 - **01-signal-star: Signal star** — A bold evolution of the current mark.
 - **02-mh-monogram: MH monogram** — Personal identity, clear and direct.
@@ -10,6 +10,6 @@ Review only; the current site favicon remains active.
 
 Each option has a vector SVG, a 512×512 PNG, and a 32×32 ICO. The comparison PNG shows enlarged marks and native-size light/dark tab mockups. Inspect at 100% zoom to judge 16px legibility.
 
-After choosing, generate the complete active favicon set (96px, 180px, 192px, 512px, ICO and SVG) from that option, then update the asset generator so it preserves the choice.
+`tools/build-favicons.cjs` generates the complete active favicon set (96px, 180px, 192px, 512px, ICO and SVG) from option 02. The full asset generator calls this same helper so it preserves the selection. App icons include padding for maskable safe areas.
 
 Regenerate review assets with `PORTFOLIO_DEPS` pointing at the existing runtime node_modules and `node tools/generate-favicon-options.cjs`.

@@ -13,7 +13,7 @@ const assert=require('node:assert/strict');
    const links=await page.locator('a[href],img[src],source[srcset],link[href]').evaluateAll(xs=>xs.map(x=>x.getAttribute('href')||x.getAttribute('src')||x.getAttribute('srcset')));
    for(const link of links.flatMap(x=>x.includes('.webp ')?x.split(',').map(v=>v.trim().split(' ')[0]):[x])){
     if(/^(https:|mailto:)/.test(link))continue;
-    const [target,hash]=link.split('#');const targetPath=path.resolve(target||file);assert.ok(fs.existsSync(targetPath),'Missing '+link);
+    const [target,hash]=link.split('#');const targetPath=path.resolve(target.split('?')[0]||file);assert.ok(fs.existsSync(targetPath),'Missing '+link);
     if(hash){const html=fs.readFileSync(targetPath,'utf8');assert.ok(html.includes(`id="${hash}"`),'Missing anchor '+link)}
    }
    assert.equal(await page.locator('img:not([alt]),img:not([width]),img:not([height])').count(),0);
