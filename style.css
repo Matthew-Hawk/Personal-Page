@@ -199,6 +199,9 @@ picture { display:contents; }
 .skip-link:focus {
     top:10px
 }
+/* main receives focus after skip/back-to-top navigation; its child links keep
+   their own visible focus outlines when keyboard navigation continues. */
+main[tabindex="-1"]:focus { outline:none; }
 /* Homepage introduction: copy and portrait sit side by side on wide screens. */
 .hero {
     display:grid;
@@ -330,6 +333,7 @@ picture { display:contents; }
     border:1px solid var(--ink);
     margin-bottom:25px
 }
+.supporting-grid > article > a { display:block; }
 .supporting-grid h3 {
     font-size:42px
 }
@@ -385,10 +389,44 @@ picture { display:contents; }
 footer {
     border-top:2px solid;
     padding:25px 5vw;
+    /* Leave space below the footer text for the floating navigation control. */
+    padding-bottom:100px;
     display:flex;
     justify-content:space-between;
     gap:24px;
     flex-wrap:wrap
+}
+/* Fixed navigation stays reachable without making readers scroll to the footer.
+   Native :active gives pointer/touch feedback; reduced-motion rules below
+   disable transitions, and JS also avoids animated scrolling when paused. */
+.back-to-top {
+    position:fixed;
+    right:max(20px,env(safe-area-inset-right));
+    bottom:max(20px,env(safe-area-inset-bottom));
+    z-index:15;
+    width:56px;
+    height:56px;
+    padding:0;
+    display:grid;
+    place-items:center;
+    border:2px solid var(--ink);
+    border-radius:50%;
+    background:var(--paper);
+    color:var(--ink);
+    box-shadow:3px 3px 0 var(--red);
+    font-size:28px;
+    line-height:1;
+    transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease,color .18s ease
+}
+.back-to-top:hover,.back-to-top:focus-visible {
+    transform:translateY(-4px);
+    background:var(--ink);
+    color:var(--paper);
+    box-shadow:4px 6px 0 var(--red)
+}
+.back-to-top:active {
+    transform:translateY(1px) scale(.94);
+    box-shadow:1px 1px 0 var(--red)
 }
 /* Case-study page: introduction, paired text rows, and expandable code sample. */
 .case-hero {
@@ -669,6 +707,8 @@ footer {
 .hero, .case-hero {
     position: relative;
     isolation: isolate;
+    /* Rotating accents and their shadows must not widen the page mid-animation. */
+    overflow: clip;
 }
 .hero::before, .case-hero::before {
     content: '';
@@ -740,11 +780,11 @@ footer {
     transition: transform .22s ease;
 }
 .site-header nav a:hover::after, .site-header nav a:focus-visible::after { transform: scaleX(1); }
-.featured figure img, .supporting-grid > article > picture > img {
+.featured figure img, .supporting-grid > article > a > picture > img {
     transition: transform .35s ease, box-shadow .35s ease;
 }
 .featured figure:hover img, .featured figure:focus-within img,
-.supporting-grid > article:hover > picture > img, .supporting-grid > article:focus-within > picture > img {
+.supporting-grid > article:hover > a > picture > img, .supporting-grid > article:focus-within > a > picture > img {
     transform: translateY(-4px);
     box-shadow: 5px 5px 0 color-mix(in srgb, var(--red) 45%, transparent);
 }
@@ -782,12 +822,13 @@ footer {
     scroll-behavior: auto !important;
 }
 :root[data-motion=paused] .arrived,
+:root[data-motion=paused] .back-to-top,
 :root[data-motion=paused] .wordmark > span:last-child,
 :root[data-motion=paused] .featured figure img,
-:root[data-motion=paused] .supporting-grid > article > picture > img { transform: none !important; }
+:root[data-motion=paused] .supporting-grid > article > a > picture > img { transform: none !important; }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-    .arrived, .wordmark > span:last-child, .featured figure img, .supporting-grid > article > picture > img { transform: none !important; }
+    .arrived, .back-to-top, .wordmark > span:last-child, .featured figure img, .supporting-grid > article > a > picture > img { transform: none !important; }
 }
 /* Keep both section labels available at narrow widths. */
 @media (max-width:600px) {

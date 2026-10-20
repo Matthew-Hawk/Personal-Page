@@ -72,7 +72,7 @@
 <div class="display-controls"><button id="theme-toggle" type="button" aria-label="Dark theme" aria-pressed="false"><span id="theme-label">DARK</span> <span aria-hidden="true">◐</span></button><button id="motion-toggle" type="button" aria-label="Pause animations" aria-pressed="false"><span id="motion-label">MOTION ON</span> <span aria-hidden="true">◌</span></button>
 </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <!-- Case-study introduction and product screenshot. The header links back
      to homepage sections rather than anchors on this page. -->
 <section class="section-shell case-hero"><a href="index.html#projects"><span aria-hidden="true">←</span> Selected work</a>
@@ -82,7 +82,7 @@
 </h1>
 <p class="lead">A visual PowerShell builder for learning commands and making everyday IT scripting easier.
 </p>
-<div class="actions"><a href="https://shellify.pages.dev/" aria-label="Shellify live application" rel="noopener noreferrer">Live application <span aria-hidden="true">↗</span></a><a href="https://github.com/Matthew-Hawk/Shellify" aria-label="Shellify source code on GitHub" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
+<div class="actions"><a href="https://shellify.pages.dev/" aria-label="Shellify live application (opens in a new tab)" rel="noopener noreferrer" target="_blank" title="Opens in a new tab">Live application <span aria-hidden="true">↗</span></a><a href="https://github.com/Matthew-Hawk/Shellify" aria-label="Shellify source code on GitHub (opens in a new tab)" rel="noopener noreferrer" target="_blank" title="Opens in a new tab">Source code <span aria-hidden="true">↗</span></a>
 </div>
 <!-- Match sizes to the full-width figure (capped at 1100px), not the homepage
      grid. This lets high-density displays request the 2880px source. -->
@@ -140,7 +140,7 @@
 <p>I chose not to use AI to generate scripts at runtime. Shellify uses a local catalog of supported commands, validates the supplied values, and assembles PowerShell deterministically.
 </p>
 <p>This makes output inspectable and repeatable. The tradeoff is scope: a task needs a supported template; arbitrary requests do not become new commands automatically. Deterministic output still needs review for the environment where it will run.
-</p><a href="https://github.com/Matthew-Hawk/Shellify/blob/main/dist/js/generator.js" rel="noopener noreferrer">Read the generation logic <span aria-hidden="true">↗</span></a>
+</p><a href="https://github.com/Matthew-Hawk/Shellify/blob/main/dist/js/generator.js" rel="noopener noreferrer" target="_blank" title="Opens in a new tab">Read the generation logic <span aria-hidden="true">↗</span></a>
 </div>
 </div>
 <div class="case-row">
@@ -150,7 +150,7 @@
 <p>Fitting the builder on the screen while keeping it easy to navigate was my hardest design problem.
 </p>
 <p>The implementation uses a viewport-height workspace, separately scrollable panels, and responsive panel layouts. Users can keep configuration and preview close together, though smaller screens require switching views or scrolling within panels.
-</p><a href="https://github.com/Matthew-Hawk/Shellify/blob/main/dist/styles.css" rel="noopener noreferrer">Inspect the workspace layout <span aria-hidden="true">↗</span></a>
+</p><a href="https://github.com/Matthew-Hawk/Shellify/blob/main/dist/styles.css" rel="noopener noreferrer" target="_blank" title="Opens in a new tab">Inspect the workspace layout <span aria-hidden="true">↗</span></a>
 </div>
 </div>
 <!-- This PowerShell is fixed display text, not code executed by the website.
@@ -194,7 +194,7 @@ Search-ADAccount -AccountInactive -UsersOnly -DateTime (Get-Date).AddDays(-90) -
 <p>I ran Active Directory scripts in my work environment and tried other scripts on my work computer.
 </p>
 <p>The repository also includes automated checks for template generation, parameter validation, quoting, search matching, and AD query limits. During this portfolio update, all 12 tests in the engine suite passed. These tests verify generation behavior; they do not establish that every generated script works in every environment.
-</p><a href="https://github.com/Matthew-Hawk/Shellify/blob/main/test/engine.test.js" rel="noopener noreferrer">Inspect the engine tests <span aria-hidden="true">↗</span></a>
+</p><a href="https://github.com/Matthew-Hawk/Shellify/blob/main/test/engine.test.js" rel="noopener noreferrer" target="_blank" title="Opens in a new tab">Inspect the engine tests <span aria-hidden="true">↗</span></a>
 </div>
 </div>
 <div class="case-row">
@@ -209,13 +209,15 @@ Search-ADAccount -AccountInactive -UsersOnly -DateTime (Get-Date).AddDays(-90) -
 </p>
 </div>
 </div>
-<div class="actions"><a class="button primary" href="https://shellify.pages.dev/" rel="noopener noreferrer">Explore Shellify <span aria-hidden="true">↗</span></a><a href="index.html#connect">Talk about my work <span aria-hidden="true">↗</span></a>
+<div class="actions"><a class="button primary" href="https://shellify.pages.dev/" rel="noopener noreferrer" target="_blank" title="Opens in a new tab">Explore Shellify <span aria-hidden="true">↗</span></a><a href="index.html#connect">Talk about my work <span aria-hidden="true">↗</span></a>
 </div>
 </section>
 </main>
 <!-- script.js refreshes #year; the hardcoded year is the no-JS fallback. -->
-<footer><span>© <span id="year">2026</span> MATTHEW HAWKINS</span> <span>IT SYSTEMS / AUTOMATION / WEB</span><a href="#main">Back to top <span aria-hidden="true">↑</span></a>
+<footer><span>© <span id="year">2026</span> MATTHEW HAWKINS</span> <span>IT SYSTEMS / AUTOMATION / WEB</span>
 <span>Last updated: October 2026</span>
 </footer>
+<!-- script.js shows this only after scrolling and returns focus to #main. -->
+<button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top" title="Back to top" hidden><span aria-hidden="true">↑</span></button>
 </body>
 </html>

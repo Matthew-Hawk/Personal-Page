@@ -61,10 +61,19 @@ progress.className = 'reading-progress';
 progress.setAttribute('aria-hidden', 'true');
 document.body.prepend(progress);
 let progressFrame = 0;
+const backToTop = document.querySelector('#back-to-top');
+// Move keyboard focus back to the main content before the floating control
+// disappears. Use instant scrolling when either motion preference requests it.
+backToTop.addEventListener('click', () => {
+  document.querySelector('#main').focus({preventScroll:true});
+  window.scrollTo({top:0, behavior:root.dataset.motion === 'paused' || systemMotion.matches ? 'instant' : 'smooth'});
+});
 function updateProgress() {
   // Normalize scroll position to 0..1 for CSS scaleX; short pages have no range.
   const distance = root.scrollHeight - innerHeight;
   progress.style.transform = `scaleX(${distance > 0 ? Math.min(1, Math.max(0, scrollY / distance)) : 0})`;
+  // hidden removes the button from both the page and keyboard navigation at top.
+  backToTop.hidden = scrollY <= 0;
   progressFrame = 0;
 }
 addEventListener('scroll', () => {
@@ -74,6 +83,7 @@ addEventListener('scroll', () => {
 }, {passive: true});
 addEventListener('resize', updateProgress);
 addEventListener('load', updateProgress);
+addEventListener('pageshow', updateProgress);
 // Images and fonts can change page height without a window resize.
 if ('ResizeObserver' in window) new ResizeObserver(updateProgress).observe(document.body);
 updateProgress();

@@ -72,7 +72,7 @@
 <div class="display-controls"><button id="theme-toggle" type="button" aria-label="Dark theme" aria-pressed="false"><span id="theme-label">DARK</span> <span aria-hidden="true">◐</span></button><button id="motion-toggle" type="button" aria-label="Pause animations" aria-pressed="false"><span id="motion-label">MOTION ON</span> <span aria-hidden="true">◌</span></button>
 </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <!-- Introduction and primary actions. section-shell supplies the shared gutter. -->
 <section class="hero section-shell">
 <div class="hero-copy">
@@ -117,14 +117,14 @@ HAWKINS<span class="accent">.</span>
 <p><strong>My contribution:</strong> technical scaffolding, product direction, UI/UX, and hosting, with AI-assisted development and feedback from IT professionals.
 </p>
 <p><strong>Outcome:</strong> Shellify supported my Active Directory cleanup at work and helped me identify unused applications to uninstall.</p>
-<div class="actions"><a class="button primary" href="shellify.html">Read the case study <span aria-hidden="true">↗</span></a>
+<div class="actions"><a class="button primary" href="shellify.html" target="_blank" rel="noopener noreferrer" title="Opens in a new tab">Read the case study <span aria-hidden="true">↗</span></a>
 </div>
-<div class="actions"><a href="https://shellify.pages.dev/" aria-label="Shellify live application" rel="noopener noreferrer">Live application <span aria-hidden="true">↗</span></a><a href="https://github.com/Matthew-Hawk/Shellify" aria-label="Shellify source code on GitHub" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
+<div class="actions"><a href="https://shellify.pages.dev/" aria-label="Shellify live application (opens in a new tab)" rel="noopener noreferrer" target="_blank" title="Opens in a new tab">Live application <span aria-hidden="true">↗</span></a><a href="https://github.com/Matthew-Hawk/Shellify" aria-label="Shellify source code on GitHub (opens in a new tab)" rel="noopener noreferrer" target="_blank" title="Opens in a new tab">Source code <span aria-hidden="true">↗</span></a>
 </div>
 </div>
 <!-- Dense UI text uses lossless WebP, including a 2x capture for sharp displays.
      sizes follows the featured grid here; the case study uses a wider image. -->
-<figure><a href="shellify.html"><picture><source srcset="images/shellify-builder-small.webp 720w, images/shellify-builder.webp 1440w, images/shellify-builder-2x.webp 2880w" sizes="(max-width:600px) calc(100vw - 48px), (max-width:900px) 90vw, (max-width:1600px) 46vw, 736px" type="image/webp"><img src="images/shellify-builder.png" alt="Shellify workspace with command search, a configured step, and PowerShell preview" width="1440" height="900" loading="lazy"></picture></a>
+<figure><a href="shellify.html" target="_blank" rel="noopener noreferrer" title="Opens in a new tab"><picture><source srcset="images/shellify-builder-small.webp 720w, images/shellify-builder.webp 1440w, images/shellify-builder-2x.webp 2880w" sizes="(max-width:600px) calc(100vw - 48px), (max-width:900px) 90vw, (max-width:1600px) 46vw, 736px" type="image/webp"><img src="images/shellify-builder.png" alt="Shellify workspace with command search, a configured step, and PowerShell preview" width="1440" height="900" loading="lazy"></picture></a>
 <figcaption>THE BUILDER / DISCOVER → CONFIGURE → REVIEW
 </figcaption>
 </figure>
@@ -152,7 +152,7 @@ HAWKINS<span class="accent">.</span>
 <p>These projects explore structured logic, interface design, and art direction alongside my IT work.</p>
 <!-- Below-the-fold project images load lazily to avoid competing with the hero. -->
 <div class="supporting-grid">
-<article><picture><source srcset="images/z-raid-small.webp 720w, images/z-raid.webp 1280w" sizes="(max-width:600px) calc(100vw - 48px), (max-width:900px) 90vw, 50vw" type="image/webp"><img src="images/z-raid.jpg" alt="Z-Raid survival game opening screen and pixel-art direction" width="1280" height="720" loading="lazy"></picture>
+<article><a href="https://z-raid.pages.dev/" target="_blank" rel="noopener noreferrer" aria-label="Preview Z-Raid (opens in a new tab)" title="Opens in a new tab"><picture><source srcset="images/z-raid-small.webp 720w, images/z-raid.webp 1280w" sizes="(max-width:600px) calc(100vw - 48px), (max-width:900px) 90vw, 50vw" type="image/webp"><img src="images/z-raid.jpg" alt="Z-Raid survival game opening screen and pixel-art direction" width="1280" height="720" loading="lazy"></picture></a>
 <p class="eyebrow">GAMEPLAY LOGIC / ART DIRECTION
 </p>
 <h3>Z-Raid
@@ -162,14 +162,14 @@ HAWKINS<span class="accent">.</span>
 <p><strong>My contribution:</strong> art direction, storyline, and gameplay math, with AI-assisted development. I gathered feedback through user playtesting.
 </p>
 <p><strong>Learning:</strong> I adjusted the choice checks to make winning less predictable.</p>
-<div class="actions"><a href="https://z-raid.pages.dev/" aria-label="Z-Raid live application" rel="noopener noreferrer">Live application <span aria-hidden="true">↗</span></a><a href="https://github.com/Matthew-Hawk/Z-Raid" aria-label="Z-Raid source code on GitHub" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
+<div class="actions"><a href="https://z-raid.pages.dev/" aria-label="Z-Raid live application (opens in a new tab)" rel="noopener noreferrer" target="_blank" title="Opens in a new tab">Live application <span aria-hidden="true">↗</span></a><a href="https://github.com/Matthew-Hawk/Z-Raid" aria-label="Z-Raid source code on GitHub (opens in a new tab)" rel="noopener noreferrer" target="_blank" title="Opens in a new tab">Source code <span aria-hidden="true">↗</span></a>
 </div>
 </article>
-<article><picture><source srcset="images/promptly-small.webp 720w, images/promptly.webp 1265w" sizes="(max-width:600px) calc(100vw - 48px), (max-width:900px) 90vw, 50vw" type="image/webp"><img src="images/promptly.jpg" alt="Promptly introduction explaining task selection, details, and copying a prompt" width="1265" height="712" loading="lazy"></picture>
+<article><a href="https://promptly.thehawk6353.workers.dev/#home" target="_blank" rel="noopener noreferrer" aria-label="Preview Promptly (opens in a new tab)" title="Opens in a new tab"><picture><source srcset="images/promptly-small.webp 720w, images/promptly.webp 1265w" sizes="(max-width:600px) calc(100vw - 48px), (max-width:900px) 90vw, 50vw" type="image/webp"><img src="images/promptly.jpg" alt="Promptly introduction explaining task selection, details, and copying a prompt" width="1265" height="712" loading="lazy"></picture></a>
 <details class="project-detail">
 <summary>See the dining workflow
 </summary>
-<figure><a href="images/promptly-dining.png"><picture><source srcset="images/promptly-dining-small.webp 720w, images/promptly-dining.webp 1440w" sizes="(max-width:600px) calc(100vw - 48px), (max-width:900px) 90vw, 50vw" type="image/webp"><img src="images/promptly-dining.png" alt="Promptly dining workflow asking for budget and food preferences" width="1440" height="900" loading="lazy"></picture></a>
+<figure><a href="images/promptly-dining.png" target="_blank" rel="noopener noreferrer" title="Opens in a new tab"><picture><source srcset="images/promptly-dining-small.webp 720w, images/promptly-dining.webp 1440w" sizes="(max-width:600px) calc(100vw - 48px), (max-width:900px) 90vw, 50vw" type="image/webp"><img src="images/promptly-dining.png" alt="Promptly dining workflow asking for budget and food preferences" width="1440" height="900" loading="lazy"></picture></a>
 <figcaption>EXAMPLE INPUT / BUDGET AND PREFERENCES
 </figcaption>
 </figure>
@@ -183,7 +183,7 @@ HAWKINS<span class="accent">.</span>
 <p><strong>My contribution:</strong> UI/UX direction and logic chains, with AI-assisted development. I focused the builder on everyday users, tried the dining workflow for lunch, and invited friends and family to test it.
 </p>
 <!-- CONFIRM: Did friends and family test Promptly, and what changed after their feedback? -->
-<div class="actions"><a href="https://promptly.thehawk6353.workers.dev/#home" aria-label="Promptly live application" rel="noopener noreferrer">Live application <span aria-hidden="true">↗</span></a><a href="https://github.com/Matthew-Hawk/Promptly" aria-label="Promptly source code on GitHub" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span></a>
+<div class="actions"><a href="https://promptly.thehawk6353.workers.dev/#home" aria-label="Promptly live application (opens in a new tab)" rel="noopener noreferrer" target="_blank" title="Opens in a new tab">Live application <span aria-hidden="true">↗</span></a><a href="https://github.com/Matthew-Hawk/Promptly" aria-label="Promptly source code on GitHub (opens in a new tab)" rel="noopener noreferrer" target="_blank" title="Opens in a new tab">Source code <span aria-hidden="true">↗</span></a>
 </div>
 </article>
 </div>
@@ -258,7 +258,7 @@ HAWKINS<span class="accent">.</span>
 <h3>Make automation understandable
 </h3>
 <p>Shellify exposes script output alongside configured inputs. Promptly guides users from a common task to a structured request.
-</p><a href="shellify.html">Evidence: Shellify case study <span aria-hidden="true">↗</span></a>
+</p><a href="shellify.html" target="_blank" rel="noopener noreferrer" title="Opens in a new tab">Evidence: Shellify case study <span aria-hidden="true">↗</span></a>
 </article>
 <article>
 <h3>Monitor &amp; support security
@@ -284,8 +284,10 @@ HAWKINS<span class="accent">.</span>
 </section>
 </main>
 <!-- script.js refreshes #year; the hardcoded year is the no-JS fallback. -->
-<footer><span>© <span id="year">2026</span> MATTHEW HAWKINS</span> <span>IT SYSTEMS / AUTOMATION / WEB</span><a href="#main">Back to top <span aria-hidden="true">↑</span></a>
+<footer><span>© <span id="year">2026</span> MATTHEW HAWKINS</span> <span>IT SYSTEMS / AUTOMATION / WEB</span>
 <span>Last updated: October 2026</span>
 </footer>
+<!-- script.js shows this only after scrolling and returns focus to #main. -->
+<button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top" title="Back to top" hidden><span aria-hidden="true">↑</span></button>
 </body>
 </html>
