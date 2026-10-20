@@ -38,6 +38,7 @@ body {
     background:var(--paper);
     color:var(--ink);
     font-family:var(--sans);
+    font-size:1rem;
     line-height:1.65
 }
 a {
@@ -70,7 +71,9 @@ figure {
 }
 figcaption,.eyebrow,.section-label,.small,footer,.story-grid span,.logic-chain>li>span {
     font-family:var(--mono);
-    font-size:12px
+    /* Keep secondary labels readable on phones as well as desktop screens. */
+    font-size:.875rem;
+    line-height:1.65
 }
 figcaption {
     margin-top:12px
@@ -109,6 +112,7 @@ em {
     letter-spacing:-.025em
 }
 .small {
+    font-size:1rem;
     line-height:1.8
 }
 /* Reusable page wrapper and section labels provide consistent spacing.
@@ -134,7 +138,6 @@ em {
 .tools-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px 7%; }
 .tools-grid dt { font-weight:600; margin-bottom:8px; }
 .tools-grid dd { margin:0; }
-.confirmation { font-size:14px; border-left:3px solid var(--red); padding:10px 14px; overflow-wrap:anywhere; }
 .site-header nav a { min-height:44px; min-width:44px; display:inline-flex; align-items:center; }
 .actions a { min-height:44px; display:inline-flex; align-items:center; }
 .button, .actions a { gap:5px; }
@@ -171,7 +174,7 @@ picture { display:contents; }
 .site-header nav {
     display:flex;
     gap:28px;
-    font:12px var(--mono)
+    font:1rem/1.5 var(--mono)
 }
 .site-header nav a {
     text-decoration:none;
@@ -182,7 +185,7 @@ picture { display:contents; }
     gap:8px
 }
 .display-controls button {
-    font:10px var(--mono)
+    font:.875rem/1.5 var(--mono)
 }
 /* Hidden offscreen until focused, so keyboard users can bypass navigation. */
 .skip-link {
@@ -234,7 +237,7 @@ picture { display:contents; }
     align-items:center;
     flex-wrap:wrap;
     margin:24px 0;
-    font-size:14px;
+    font-size:1rem;
     font-weight:600
 }
 .actions>a:not(.button) {
@@ -310,7 +313,7 @@ picture { display:contents; }
     margin:12px 0
 }
 .logic-chain p {
-    font-size:14px;
+    font-size:1rem;
     margin:0
 }
 .logic-chain>li>span {
@@ -358,7 +361,7 @@ picture { display:contents; }
 }
 .story-grid p {
     margin-top:14px;
-    font-size:15px
+    font-size:1rem
 }
 .capabilities {
     display:grid;
@@ -370,7 +373,7 @@ picture { display:contents; }
     font-size:25px
 }
 .capabilities a {
-    font-size:14px
+    font-size:1rem
 }
 /* Contact section and shared footer. */
 .contact {
@@ -436,7 +439,7 @@ footer {
 .sample pre {
     white-space:pre-wrap;
     overflow-wrap:anywhere;
-    font-size:13px;
+    font-size:.875rem;
     padding:24px;
     background:var(--paper);
     border:1px solid;
@@ -523,7 +526,6 @@ footer {
     padding-right:68px
 }
 .hero .eyebrow {
-    font-size:10px;
     max-width:235px
 }
 .hero .lead {
@@ -532,16 +534,13 @@ footer {
 .hero .intro {
     font-size:16px
 }
-.hero .small {
-    font-size:11px
-}
 .hero .actions {
     gap:12px;
     margin:20px 0
 }
 .hero .button {
     padding:10px 12px;
-    font-size:13px
+    font-size:1rem
 }
 .portrait {
     position:absolute;
@@ -556,7 +555,6 @@ footer {
     display:none
 }
 .section-label {
-    font-size:10px;
     margin-bottom:30px
 }
 .section-label span:last-child {
@@ -580,9 +578,6 @@ footer {
 }
 .logic-chain strong {
     font-size:18px
-}
-.logic-chain p {
-    font-size:13px
 }
 .supporting-grid,.section-intro,.capabilities,.case-row {
     grid-template-columns:1fr
@@ -620,16 +615,10 @@ footer {
 }
 .sample pre {
     padding:15px;
-    font-size:12px
+    font-size:.875rem
 }
 .case-hero h1 {
     font-size:56px
-}
-.case-image figcaption {
-    font-size:10px
-}
-footer {
-    font-size:10px
 }
 .contact .actions {
     gap:15px
@@ -664,7 +653,7 @@ footer {
 .project-detail summary {
     cursor:pointer;
     padding:10px 0;
-    font-size:14px
+    font-size:1rem
 }
 .project-detail figure {
     margin:15px 0
