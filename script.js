@@ -98,7 +98,7 @@ if ('IntersectionObserver' in window) {
       observer.unobserve(entry.target); // Avoid replaying effects on every scroll.
     }
   }, {threshold: 0.12});
-  document.querySelectorAll('.featured, .supporting-grid article, .story, .capabilities article, .case-row, .sample').forEach(item => observer.observe(item));
+  document.querySelectorAll('.story, .capabilities article, .case-row, .sample').forEach(item => observer.observe(item));
 }
 
 // Keep the footer year current; the HTML contains a fallback for no-JS visits.
