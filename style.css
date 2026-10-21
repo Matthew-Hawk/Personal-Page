@@ -702,7 +702,7 @@ footer {
     margin:0
 }
 
-/* Editorial motion: a quiet backdrop, the original star, and purposeful feedback. */
+/* Editorial motion: a quiet backdrop, geometric portrait accents, and feedback. */
 /* isolation keeps each negative-z-index backdrop behind its own content. */
 .hero, .case-hero {
     position: relative;
@@ -730,29 +730,31 @@ footer {
     opacity: .09;
     mask-image: radial-gradient(ellipse, #000, transparent 70%);
 }
+/* Draw accents with CSS rather than text glyphs: iOS can render symbols as
+   colored emoji. These two shapes share the palette but move independently. */
 .portrait::before {
     content: '';
     position: absolute;
-    width: 108px;
-    height: 108px;
-    right: -19px;
-    top: -34px;
-    border: 1px dashed var(--red);
-    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    right: -14px;
+    top: -24px;
+    border: 2px solid var(--red);
     pointer-events: none;
-    animation: accent-orbit 40s linear infinite;
-    background: radial-gradient(circle at 50% 3%, var(--red) 0 4px, transparent 5px);
+    animation: portrait-spin 32s linear infinite;
 }
 .portrait::after {
-    content: '✳';
+    content: '';
     position: absolute;
-    right: 10px;
-    top: -30px;
-    color: var(--red);
-    font-size: 58px;
-    line-height: 1;
+    width: 18px;
+    height: 18px;
+    left: -24px;
+    top: 62%;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: 22px 16px 0 -5px var(--ink);
     pointer-events: none;
-    animation: accent-orbit 60s linear infinite reverse;
+    animation: portrait-drift 8s ease-in-out infinite alternate;
 }
 /* script.js updates scaleX from 0 to 1; left origin makes this grow rightward. */
 .reading-progress {
@@ -805,12 +807,13 @@ footer {
 /* IntersectionObserver in script.js adds this class once on viewport entry. */
 .arrived { animation: section-arrive .65s ease-out both; }
 @keyframes ambient-drift { to { transform: translate(-18px, 12px) scale(1.05); } }
-@keyframes accent-orbit { to { transform: rotate(360deg); } }
+@keyframes portrait-spin { from { transform: rotate(15deg); } to { transform: rotate(375deg); } }
+@keyframes portrait-drift { from { transform: translate(0, 0); } to { transform: translate(12px, -14px); } }
 @keyframes workflow-step { 0%, 25%, 100% { opacity: .15; } 8%, 17% { opacity: .8; } }
 @keyframes section-arrive { from { transform: translateY(12px); } to { transform: translateY(0); } }
 @media (max-width: 600px) {
-    .portrait::before { width: 42px; height: 42px; right: -8px; top: -15px; }
-    .portrait::after { font-size: 28px; top: -15px; right: -2px; }
+    .portrait::before { width: 24px; height: 24px; right: -5px; top: -10px; }
+    .portrait::after { width: 8px; height: 8px; left: -12px; top: 60%; box-shadow: 10px 9px 0 -2px var(--ink); }
     .hero::before { inset: 0 0 45% 35%; }
 }
 /* Include pseudo-elements so decorative loops obey both preference controls. */
