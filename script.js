@@ -8,6 +8,9 @@ const themeToggle = document.querySelector('#theme-toggle');
 const motionToggle = document.querySelector('#motion-toggle');
 const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
 const systemMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+// Keyboard navigation should respond immediately, including fragment links.
+addEventListener('keydown', () => { root.dataset.input = 'keyboard'; });
+addEventListener('pointerdown', () => { root.dataset.input = 'pointer'; }, {passive:true});
 // Storage can throw when blocked by browser settings. The controls still work
 // for this visit; only remembering the choice between visits is lost.
 const readPreference = key => { try { return localStorage.getItem(key); } catch { return null; } };
@@ -64,9 +67,9 @@ let progressFrame = 0;
 const backToTop = document.querySelector('#back-to-top');
 // Move keyboard focus back to the main content before the floating control
 // disappears. Use instant scrolling when either motion preference requests it.
-backToTop.addEventListener('click', () => {
+backToTop.addEventListener('click', event => {
   document.querySelector('#main').focus({preventScroll:true});
-  window.scrollTo({top:0, behavior:root.dataset.motion === 'paused' || systemMotion.matches ? 'instant' : 'smooth'});
+  window.scrollTo({top:0, behavior:event.detail === 0 || root.dataset.motion === 'paused' || systemMotion.matches ? 'instant' : 'smooth'});
 });
 function updateProgress() {
   // Normalize scroll position to 0..1 for CSS scaleX; short pages have no range.
@@ -98,7 +101,7 @@ if ('IntersectionObserver' in window) {
       observer.unobserve(entry.target); // Avoid replaying effects on every scroll.
     }
   }, {threshold: 0.12});
-  document.querySelectorAll('.story, .capabilities article, .case-row, .sample').forEach(item => observer.observe(item));
+  document.querySelectorAll('.case-row, .sample').forEach(item => observer.observe(item));
 }
 
 // Keep the footer year current; the HTML contains a fallback for no-JS visits.
